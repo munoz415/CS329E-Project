@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BED76478273AF4A900305F59 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED76477273AF4A900305F59 /* RegistrationViewController.swift */; };
 		BEDB68B9273AEE6D004FDB4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEDB68B8273AEE6D004FDB4A /* GoogleService-Info.plist */; };
 		CE2990462738AF8A00836112 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2990452738AF8A00836112 /* LoginViewController.swift */; };
 		CEA44F852738AFEA00A09D7D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F842738AFEA00A09D7D /* SettingsViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		30CB5B07126E0DA643D0FF7A /* Pods-Volly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volly.release.xcconfig"; path = "Target Support Files/Pods-Volly/Pods-Volly.release.xcconfig"; sourceTree = "<group>"; };
 		6B038EBD1501BEBFC4ADECF1 /* Pods-Volly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volly.debug.xcconfig"; path = "Target Support Files/Pods-Volly/Pods-Volly.debug.xcconfig"; sourceTree = "<group>"; };
+		BED76477273AF4A900305F59 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		BEDB68B8273AEE6D004FDB4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE2990452738AF8A00836112 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CEA44F842738AFEA00A09D7D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +66,6 @@
 				6B038EBD1501BEBFC4ADECF1 /* Pods-Volly.debug.xcconfig */,
 				30CB5B07126E0DA643D0FF7A /* Pods-Volly.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -106,6 +107,7 @@
 				CEA44F862738B01C00A09D7D /* AddEventViewController.swift */,
 				CECAEA41273A103D00D501D1 /* MapViewController.swift */,
 				CEA44F8A2738B0B100A09D7D /* CalendarViewController.swift */,
+				BED76477273AF4A900305F59 /* RegistrationViewController.swift */,
 				CEFDC55E2738AE52007CBF73 /* Main.storyboard */,
 				CEFDC5642738AE53007CBF73 /* Assets.xcassets */,
 				CEFDC5662738AE53007CBF73 /* LaunchScreen.storyboard */,
@@ -235,6 +237,7 @@
 				CEFDC5632738AE52007CBF73 /* Volly.xcdatamodeld in Sources */,
 				CEFDC55D2738AE52007CBF73 /* WelcomePage.swift in Sources */,
 				CEFDC5592738AE52007CBF73 /* AppDelegate.swift in Sources */,
+				BED76478273AF4A900305F59 /* RegistrationViewController.swift in Sources */,
 				CECAEA42273A103D00D501D1 /* MapViewController.swift in Sources */,
 				CE2990462738AF8A00836112 /* LoginViewController.swift in Sources */,
 				CEA44F872738B01C00A09D7D /* AddEventViewController.swift in Sources */,
@@ -391,7 +394,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6F8TU5Q555;
+				DEVELOPMENT_TEAM = SU9NCL3LQ2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Volly/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -421,7 +424,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6F8TU5Q555;
+				DEVELOPMENT_TEAM = SU9NCL3LQ2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Volly/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
