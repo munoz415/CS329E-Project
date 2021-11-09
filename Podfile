@@ -6,5 +6,7 @@ target 'Volly' do
   use_frameworks!
 
   # Pods for Volly
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
 
 end

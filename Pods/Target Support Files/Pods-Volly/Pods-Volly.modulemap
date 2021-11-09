@@ -1,0 +1,6 @@
+framework module Pods_Volly {
+  umbrella header "Pods-Volly-umbrella.h"
+
+  export *
+  module * { export * }
+}
