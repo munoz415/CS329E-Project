@@ -6,16 +6,26 @@
 //
 
 import UIKit
+import CoreData
 
 class AddEventViewController: UIViewController {
 
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var hoursField: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var descriptionField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func addLocationButton(_ sender: Any) {
+    }
+    
+    @IBAction func saveButton(_ sender: Any) {
+    }
+    
     /*
     // MARK: - Navigation
 
