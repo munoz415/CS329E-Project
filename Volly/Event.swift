@@ -49,4 +49,20 @@ public class Event {
     func setDescription(newDescription: String) {
         description = newDescription
     }
+    
+    func fullEvent() -> String {
+        if(name == "") {
+            return "name."
+        } else if(date == "") {
+            return "date."
+        } else if(hours == 0.0) {
+            return "hours."
+        } else if(location == "") {
+            return "location."
+        } else if(description == "") {
+            return "description."
+        } else {
+            return ""
+        }
+    }
 }

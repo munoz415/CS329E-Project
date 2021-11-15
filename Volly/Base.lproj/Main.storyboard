@@ -130,6 +130,9 @@
                             </button>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="dI1-dt-1Wz">
                                 <rect key="frame" x="0.0" y="264" width="414" height="216"/>
+                                <connections>
+                                    <action selector="datePickerChanged:" destination="NQC-vh-OYE" eventType="valueChanged" id="kkM-H0-Z98"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="970-ds-ua3"/>
