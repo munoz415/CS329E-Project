@@ -1,12 +1,14 @@
 //
 //  AddEventViewController.swift
 //  Volly
-//
-//  Created by Michael on 11/7/21.
-//
 
 import UIKit
 import CoreData
+
+protocol plusLocation {
+    //function to add new pizza to list
+    func addLocation(newLocation:String)
+}
 
 class AddEventViewController: UIViewController {
 
@@ -15,25 +17,36 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var descriptionField: UITextField!
     
+    var currentEvent = Event()
+    
+    let segueIdentifier = "mapSegueIdentifier"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addLocationButton(_ sender: Any) {
-    }
-    
     @IBAction func saveButton(_ sender: Any) {
+        if(nameField.text != nil && hoursField != nil && descriptionField != nil) {
+            currentEvent.setName(newName: nameField.text!)
+            currentEvent.setHours(newHours: Double(hoursField.text!)!)
+            currentEvent.setDescription(newDescription: descriptionField.text!)
+        }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        //if going to the create page
+        if segue.identifier == segueIdentifier,
+           let nextVC = segue.destination as? MapViewController {
+            //delegate self
+            nextVC.delegate = self
+            nextVC.eventName = nameField.text!
+            nextVC.hours = hoursField.text!
+        }
     }
-    */
+    
+    func plusLocation(newLocation:String) {
+        currentEvent.setLocation(newLocation: newLocation)
+    }
 
 }

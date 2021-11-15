@@ -1,9 +1,6 @@
 //
 //  MapViewController.swift
 //  Volly
-//
-//  Created by Michael on 11/8/21.
-//
 
 import UIKit
 import MapKit
@@ -11,6 +8,9 @@ import MapKit
 class MapViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    var delegate: UIViewController!
+    var eventName: String!
+    var hours: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,9 +38,13 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,
                                                        longitude: userLocation.coordinate.longitude)
-        annotation.title = "" // name of event
-        annotation.subtitle = "" // number of hours
+        annotation.title = eventName // name of event
+        annotation.subtitle = hours // number of hours
         mapView.addAnnotation(annotation)
+        
+        let otherVC = delegate as! AddEventViewController
+        let locationStr = annotation.title!
+        otherVC.plusLocation(newLocation: locationStr)
     }
     
 

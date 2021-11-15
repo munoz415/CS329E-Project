@@ -1,9 +1,6 @@
 //
 //  SettingsViewController.swift
 //  Volly
-//
-//  Created by Michael on 11/7/21.
-//
 
 import UIKit
 
