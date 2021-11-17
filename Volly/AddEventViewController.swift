@@ -4,9 +4,10 @@
 
 import UIKit
 import CoreData
+import CoreHaptics
 
 protocol plusLocation {
-    //function to add new pizza to list
+    //function to add new location event
     func addLocation(newLocation:String)
 }
 
@@ -21,31 +22,61 @@ class AddEventViewController: UIViewController {
     
     let segueIdentifier = "mapSegueIdentifier"
     
+    var engine: CHHapticEngine!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //set specific date and time mode
         datePicker.datePickerMode = .dateAndTime
+        
+        //test if haptic is supported on the device
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else { return }
+
+        do {
+            engine = try CHHapticEngine()
+            try engine?.start()
+        } catch {
+            print("There was an error creating the engine: \(error.localizedDescription)")
+        }
     }
     
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
+        //make date formatter
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm E, d MMM y"
         let dateString = dateFormatter.string(from: sender.date)
         
+        //add date string to event object
         currentEvent.setDate(newDate: dateString)
     }
     
     @IBAction func saveButton(_ sender: Any) {
+        //if all fields have been filled in
         if(nameField.text != nil && hoursField != nil && descriptionField != nil) {
+            //set event object attributes from respective fields
             currentEvent.setName(newName: nameField.text!)
             currentEvent.setHours(newHours: Double(hoursField.text!)!)
             currentEvent.setDescription(newDescription: descriptionField.text!)
             
+            //store event in core data
             storeEvent()
+            
+            //create and execute haptic response
+            let event = CHHapticEvent(eventType: .hapticTransient, parameters: [], relativeTime: 0)
+                    
+            do {
+              let pattern = try CHHapticPattern(events: [event], parameters: [])
+              let player = try engine.makePlayer(with: pattern)
+              try player.start(atTime: CHHapticTimeImmediate)
+            } catch {
+                print("There was an error with the haptics: \(error.localizedDescription)")
+            }
         } else {
+            //if there is an empty field
             let missingField = currentEvent.fullEvent()
-            //create controller to display alert of missing ingredient
+            //create controller to display alert of missing field
             let controller = UIAlertController(title: "Missing entry", message: "Please fill in \(missingField)", preferredStyle: .alert)
             controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(controller, animated: true, completion: nil)
@@ -56,7 +87,7 @@ class AddEventViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
-        //get event from pizza event
+        //create new event entity
         let event = NSEntityDescription.insertNewObject(
             forEntityName: "EventEntity", into: context)
         
@@ -79,7 +110,7 @@ class AddEventViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if going to the create page
+        //if going to the map page
         if segue.identifier == segueIdentifier,
            let nextVC = segue.destination as? MapViewController {
             //delegate self

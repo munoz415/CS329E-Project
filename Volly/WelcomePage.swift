@@ -30,8 +30,8 @@ class WelcomePage: UIViewController {
             //nextVC.delegate = self
            
         }
-        if segue.identifier == "pastEvents",
-           let nextVC = segue.destination as? PastEventsViewController{
+        if segue.identifier == "events",
+           let nextVC = segue.destination as? EventsViewController{
             //delegate self
             //nextVC.delegate = self
            
