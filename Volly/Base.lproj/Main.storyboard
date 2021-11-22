@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qSB-Gw-8px">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qSB-Gw-8px">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -338,6 +338,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="37Y-Ar-Dca" id="c9y-Ik-APJ"/>
                         <outlet property="passwordTextField" destination="GVE-TZ-pP9" id="LMF-aT-dOu"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="loginToWelcome" id="Ppw-ou-64Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Zv-Rc-GhW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -382,7 +383,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Add User"/>
                                 <connections>
                                     <action selector="registerButtonPressed:" destination="dPv-Hx-Qm7" eventType="touchUpInside" id="SnU-zV-wB6"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="registerToWelcome" id="DYh-IO-n1h"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tDH-hV-RZ7">
@@ -421,6 +421,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="2bm-SC-RcX" id="ek3-WP-Dmo"/>
                         <outlet property="passwordTextField" destination="sMe-kG-H18" id="PTZ-Qn-o3a"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="registerToWelcome" id="uPo-8l-WZ4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGi-EP-vAk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -447,7 +448,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DYh-IO-n1h"/>
+        <segue reference="uPo-8l-WZ4"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>

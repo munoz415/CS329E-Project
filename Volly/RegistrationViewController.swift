@@ -42,18 +42,21 @@ class RegistrationViewController: UIViewController {
             // admin email structure is ___@admin.com
             if (email.suffix(9) == "@user.com") || (email.suffix(10) == "@admin.com") {
                 Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                    if let e = error {
+                        let controller = UIAlertController(
+                            title: "Invalid email structure",
+                            message: "Try again with a valid email structure",
+                            preferredStyle: .alert)
+                        controller.addAction(UIAlertAction(
+                                                title: "OK",
+                                                style: .default,
+                                                handler: nil))
+                        self.present(controller, animated: true, completion: nil)
+                    } else {
+                        self.performSegue(withIdentifier: "registerToWelcome", sender: self)
+                    }
                     
                 }
-            } else {
-                let controller = UIAlertController(
-                    title: "Invalid email structure",
-                    message: "Try again with a valid email",
-                    preferredStyle: .alert)
-                controller.addAction(UIAlertAction(
-                                        title: "OK",
-                                        style: .default,
-                                        handler: nil))
-                present(controller, animated: true, completion: nil)
             }
         } else {
             let controller = UIAlertController(
