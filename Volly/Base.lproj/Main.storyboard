@@ -40,17 +40,8 @@
                                     <segue destination="NQC-vh-OYE" kind="show" identifier="addEvents" id="gwg-u1-0gc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnz-xW-vx1">
-                                <rect key="frame" x="124" y="217" width="165" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="View Calendar"/>
-                                <connections>
-                                    <segue destination="Lwi-AN-NpS" kind="show" identifier="Calendar" id="f2N-Pj-j26"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9yV-uQ-eAn">
-                                <rect key="frame" x="124" y="305" width="165" height="31"/>
+                                <rect key="frame" x="124" y="244" width="165" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="View Events"/>
@@ -259,22 +250,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3yX-3S-X4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3271" y="-469"/>
-        </scene>
-        <!--Calendar View Controller-->
-        <scene sceneID="fvo-3r-FCS">
-            <objects>
-                <viewController id="Lwi-AN-NpS" customClass="CalendarViewController" customModule="Volly" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="i4E-rb-ow2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="QIt-4a-dVJ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="39a-sc-u0E"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YJ7-ih-pKs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2454" y="218"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="x1X-Mb-3TQ">

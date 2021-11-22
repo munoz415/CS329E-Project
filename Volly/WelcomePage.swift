@@ -24,12 +24,6 @@ class WelcomePage: UIViewController {
             //nextVC.delegate = self
            
         }
-        if segue.identifier == "Calendar",
-           let nextVC = segue.destination as? CalendarViewController{
-            //delegate self
-            //nextVC.delegate = self
-           
-        }
         if segue.identifier == "events",
            let nextVC = segue.destination as? EventsViewController{
             //delegate self

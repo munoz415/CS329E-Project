@@ -13,7 +13,6 @@
 		CEA44F852738AFEA00A09D7D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F842738AFEA00A09D7D /* SettingsViewController.swift */; };
 		CEA44F872738B01C00A09D7D /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F862738B01C00A09D7D /* AddEventViewController.swift */; };
 		CEA44F892738B06F00A09D7D /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F882738B06F00A09D7D /* EventsViewController.swift */; };
-		CEA44F8B2738B0B100A09D7D /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F8A2738B0B100A09D7D /* CalendarViewController.swift */; };
 		CECAEA42273A103D00D501D1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAEA41273A103D00D501D1 /* MapViewController.swift */; };
 		CEDBB0C92741FC4900AC6054 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBB0C82741FC4900AC6054 /* Event.swift */; };
 		CEFDC5592738AE52007CBF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDC5582738AE52007CBF73 /* AppDelegate.swift */; };
@@ -35,7 +34,6 @@
 		CEA44F842738AFEA00A09D7D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CEA44F862738B01C00A09D7D /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		CEA44F882738B06F00A09D7D /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
-		CEA44F8A2738B0B100A09D7D /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		CECAEA41273A103D00D501D1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CEDBB0C82741FC4900AC6054 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		CEFDC5552738AE52007CBF73 /* Volly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,7 +107,6 @@
 				CEA44F862738B01C00A09D7D /* AddEventViewController.swift */,
 				CEDBB0C82741FC4900AC6054 /* Event.swift */,
 				CECAEA41273A103D00D501D1 /* MapViewController.swift */,
-				CEA44F8A2738B0B100A09D7D /* CalendarViewController.swift */,
 				BED76477273AF4A900305F59 /* RegistrationViewController.swift */,
 				CEFDC55E2738AE52007CBF73 /* Main.storyboard */,
 				CEFDC5642738AE53007CBF73 /* Assets.xcassets */,
@@ -246,7 +243,6 @@
 				CE2990462738AF8A00836112 /* LoginViewController.swift in Sources */,
 				CEA44F872738B01C00A09D7D /* AddEventViewController.swift in Sources */,
 				CEA44F892738B06F00A09D7D /* EventsViewController.swift in Sources */,
-				CEA44F8B2738B0B100A09D7D /* CalendarViewController.swift in Sources */,
 				CEFDC55B2738AE52007CBF73 /* SceneDelegate.swift in Sources */,
 				CEA44F852738AFEA00A09D7D /* SettingsViewController.swift in Sources */,
 			);
