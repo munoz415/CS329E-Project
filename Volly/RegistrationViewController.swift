@@ -20,7 +20,6 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -40,23 +39,35 @@ class RegistrationViewController: UIViewController {
             // check that email follows either user or admin structure
             // user email structure is ___@user.com
             // admin email structure is ___@admin.com
-            if (email.suffix(9) == "@user.com") || (email.suffix(10) == "@admin.com") {
-                Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                    if let e = error {
-                        let controller = UIAlertController(
-                            title: "Invalid email structure",
-                            message: "Try again with a valid email structure",
-                            preferredStyle: .alert)
-                        controller.addAction(UIAlertAction(
-                                                title: "OK",
-                                                style: .default,
-                                                handler: nil))
-                        self.present(controller, animated: true, completion: nil)
-                    } else {
-                        self.performSegue(withIdentifier: "registerToWelcome", sender: self)
+            if (email.count > 9) {
+                if (email.suffix(9) == "@user.com") || (email.suffix(10) == "@admin.com") {
+                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                        if let e = error {
+                            let controller = UIAlertController(
+                                title: "Invalid email structure",
+                                message: "Try again with a valid email structure",
+                                preferredStyle: .alert)
+                            controller.addAction(UIAlertAction(
+                                                    title: "OK",
+                                                    style: .default,
+                                                    handler: nil))
+                            self.present(controller, animated: true, completion: nil)
+                        } else {
+                            self.performSegue(withIdentifier: "registerToWelcome", sender: self)
+                        }
+                        
                     }
-                    
                 }
+            } else {
+                let controller = UIAlertController(
+                    title: "Invalid email structure",
+                    message: "Try again with a valid email structure",
+                    preferredStyle: .alert)
+                controller.addAction(UIAlertAction(
+                                        title: "OK",
+                                        style: .default,
+                                        handler: nil))
+                self.present(controller, animated: true, completion: nil)
             }
         } else {
             let controller = UIAlertController(
