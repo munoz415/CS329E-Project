@@ -18,6 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager = CLLocationManager()
         locationManager?.requestWhenInUseAuthorization()
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert], completionHandler: {
+            (success, error) in
+            if success {
+                print("Permission Granted")
+            } else {
+                print("There was a problem")
+            }
+        })
+        
         return true
     }
 

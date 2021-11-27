@@ -65,4 +65,8 @@ public class Event {
             return ""
         }
     }
+    
+    func toString() -> String {
+        return "Name: \(name)\nDate: \(date)\nHours: \(hours)\nLocation: \(location)\nDescription: \(description)"
+    }
 }

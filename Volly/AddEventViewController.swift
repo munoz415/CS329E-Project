@@ -68,8 +68,8 @@ class AddEventViewController: UIViewController {
                     
             do {
               let pattern = try CHHapticPattern(events: [event], parameters: [])
-              let player = try engine.makePlayer(with: pattern)
-              try player.start(atTime: CHHapticTimeImmediate)
+              let player = try engine?.makePlayer(with: pattern)
+              try player?.start(atTime: CHHapticTimeImmediate)
             } catch {
                 print("There was an error with the haptics: \(error.localizedDescription)")
             }
@@ -81,6 +81,10 @@ class AddEventViewController: UIViewController {
             controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(controller, animated: true, completion: nil)
         }
+        
+        //show notification that event was saved
+        
+        
     }
     
     func storeEvent() {
