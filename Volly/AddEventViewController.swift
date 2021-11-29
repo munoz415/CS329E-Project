@@ -60,7 +60,7 @@ class AddEventViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         //if all fields have been filled in
-        if(nameField.text != nil && hoursField != nil && descriptionField != nil) {
+        if(nameField.text != "" && hoursField.text != "" && descriptionField.text != "") {
             //set event object attributes from respective fields
             currentEvent.setName(newName: nameField.text!)
             currentEvent.setHours(newHours: Double(hoursField.text!)!)

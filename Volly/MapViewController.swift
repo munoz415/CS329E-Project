@@ -18,7 +18,31 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // Do any additional setup after loading the view.
         mapView.delegate = self
         mapView.showsUserLocation = true
+        
+        //recognizer to capture user tap on the map
+        let longPressRecogniser = UILongPressGestureRecognizer(target: self, action: #selector(MapViewController.handleLongPress(_:)))
+        longPressRecogniser.minimumPressDuration = 1.0
+        mapView.addGestureRecognizer(longPressRecogniser)
     }
+    
+    @objc func handleLongPress(_ gestureRecognizer : UIGestureRecognizer){
+        if gestureRecognizer.state != .began { return }
+
+        let touchPoint = gestureRecognizer.location(in: mapView)
+        let touchMapCoordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+
+        let annotation = MKPointAnnotation()
+        
+        annotation.coordinate = CLLocationCoordinate2D(latitude: touchMapCoordinate.latitude,
+                                                       longitude: touchMapCoordinate.longitude)
+        annotation.title = eventName
+        mapView.addAnnotation(annotation)
+        
+        let otherVC = delegate as! AddEventViewController
+        let locationStr = annotation.title!
+        otherVC.plusLocation(newLocation: locationStr)
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         let userLocation = mapView.userLocation
@@ -33,18 +57,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
                                         longitudinalMeters: EWDistance)
         // commit the region
         mapView.setRegion(region, animated: true)
-        
-        // add annotiation of current location to map
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,
-                                                       longitude: userLocation.coordinate.longitude)
-        annotation.title = eventName // name of event
-        annotation.subtitle = hours // number of hours
-        mapView.addAnnotation(annotation)
-        
-        let otherVC = delegate as! AddEventViewController
-        let locationStr = annotation.title!
-        otherVC.plusLocation(newLocation: locationStr)
     }
     
 
