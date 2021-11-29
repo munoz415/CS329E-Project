@@ -27,8 +27,17 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
 
         // Do any additional setup after loading the view.
-        print(eventList)
-//        print(fetchedResults)
+        
+        // checking to see if eventsList number matches with number fetched
+        var eventCount = 0
+        var fetchedCount = 0
+        for i in eventList {
+            eventCount += 1
+        }
+        for j in fetchedResults {
+            fetchedCount += 1
+        }
+        print(eventCount, fetchedCount)
     }
     
     func retrieveEvent() -> [NSManagedObject] {
@@ -62,16 +71,16 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         let eventRow = eventList[indexPath.row]
-        cell.textLabel?.text =  "\(eventRow.value(forKey: "name")) \n" +
-                                "\(eventRow.value(forKey: "date")) \n" +
-                                "\(eventRow.value(forKey: "eventDescription")) \n" +
-                                "\(eventRow.value(forKey: "hours")) \n" +
-                                "\(eventRow.value(forKey: "location")) "
+        cell.textLabel?.text =  "\(String(describing: eventRow.value(forKey: "name"))) " +
+                                "\(String(describing: eventRow.value(forKey: "date"))) \n" +
+                                "\(String(describing: eventRow.value(forKey: "eventDescription"))) \n" +
+                                "\(String(describing: eventRow.value(forKey: "hours"))) \n" +
+                                "\(String(describing: eventRow.value(forKey: "location"))) "
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventList.count
+        return eventList.count * 6
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -91,7 +100,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             catch {
             }
             
-            self.retrieveEvent()
+            self.eventList = self.retrieveEvent()
             }
         
         return UISwipeActionsConfiguration(actions: [action])
