@@ -40,7 +40,7 @@ class LoginViewController: UIViewController {
                         self.present(controller, animated: true, completion: nil)
                         
                     } else {
-                        self.performSegue(withIdentifier: "loginToWelcome", sender: self)
+                        self.performSegue(withIdentifier: self.segueIdentifier, sender: self)
                     }
                     
                 }
@@ -72,6 +72,7 @@ class LoginViewController: UIViewController {
                     nextVC.userName = String(name)
                 }
             } else if (emailTextField.text!.suffix(10) == "@admin.com") {
+                print("Check")
                 nextVC.userType = "Admin"
                 if let i = emailTextField.text!.firstIndex(of: "@") {
                     let index: Int = emailTextField.text!.distance(from: emailTextField.text!.startIndex, to: i)
