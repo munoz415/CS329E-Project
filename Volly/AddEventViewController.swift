@@ -5,6 +5,7 @@
 import UIKit
 import CoreData
 import CoreHaptics
+import EventKit
 
 protocol plusLocation {
     //function to add new location event
@@ -23,6 +24,10 @@ class AddEventViewController: UIViewController {
     let segueIdentifier = "mapSegueIdentifier"
     
     var engine: CHHapticEngine!
+    
+    let eventStore = EKEventStore()
+    
+    var rawDate = NSDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +52,7 @@ class AddEventViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm E, d MMM y"
         let dateString = dateFormatter.string(from: sender.date)
+        rawDate = datePicker.date as NSDate
         
         //add date string to event object
         currentEvent.setDate(newDate: dateString)
@@ -54,7 +60,7 @@ class AddEventViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
         //if all fields have been filled in
-        if(nameField.text != nil && hoursField != nil && descriptionField != nil) {
+        if(nameField.text != "" && hoursField.text != "" && descriptionField.text != "") {
             //set event object attributes from respective fields
             currentEvent.setName(newName: nameField.text!)
             currentEvent.setHours(newHours: Double(hoursField.text!)!)
@@ -62,6 +68,9 @@ class AddEventViewController: UIViewController {
             
             //store event in core data
             storeEvent()
+            
+            //put event in calendar
+            addToCalendar()
             
             //create and execute haptic response
             let event = CHHapticEvent(eventType: .hapticTransient, parameters: [], relativeTime: 0)
@@ -83,8 +92,43 @@ class AddEventViewController: UIViewController {
         }
         
         //show notification that event was saved
+        let controller = UIAlertController(title: "Event saved successfully!", message: "\(currentEvent.name) has been saved successfully", preferredStyle: .alert)
+        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(controller, animated: true, completion: nil)
         
+    }
+    
+    func addToCalendar() {
+        let startDate = rawDate
+        let endDate = startDate.addingTimeInterval(60*60*currentEvent.hours)
         
+        if(EKEventStore.authorizationStatus(for: .event) != .authorized) {
+            eventStore.requestAccess(to: .event, completion: {
+                granted, error in
+                self.createEvent(title: self.currentEvent.name, startDate: startDate, endDate: endDate)
+            })
+        } else {
+            createEvent(title: self.currentEvent.name, startDate: startDate, endDate: endDate)
+        }
+    }
+    
+    func createEvent(title: String, startDate:NSDate, endDate: NSDate) {
+        let event = EKEvent(eventStore: eventStore)
+        event.title = title
+        event.startDate = startDate as Date?
+        event.endDate = endDate as Date?
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        
+        do {
+            // save the event to the calendar
+            // "span" means "just this one" or "all subseqeunt events"
+            try eventStore.save(event, span: .thisEvent)
+            
+            // save the identifier so we can save the event later
+            
+        } catch {
+            print("Error")
+        }
     }
     
     func storeEvent() {
