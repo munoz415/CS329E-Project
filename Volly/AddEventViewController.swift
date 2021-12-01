@@ -52,8 +52,11 @@ class AddEventViewController: UIViewController {
     @IBAction func datePickerChanged(_ sender: UIDatePicker) {
         //make date formatter
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "HH:mm E, d MMM y"
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         let dateString = dateFormatter.string(from: sender.date)
+        print("Date: \(dateString)")
         rawDate = datePicker.date as NSDate
         
         //add date string to event object
@@ -68,11 +71,16 @@ class AddEventViewController: UIViewController {
             currentEvent.setHours(newHours: Double(hoursField.text!)!)
             currentEvent.setDescription(newDescription: descriptionField.text!)
             
-            //store event in core data
-            storeEvent()
+            //if the user does not input a location, use the name of the event
+            if(currentEvent.location == "") {
+                currentEvent.setLocation(newLocation: nameField.text!)
+            }
             
             //put event in calendar
             addToCalendar()
+            
+            //store event in core data
+            storeEvent()
             
             //load events from core data into table
             EventsViewController().loadArr()
@@ -126,7 +134,6 @@ class AddEventViewController: UIViewController {
         
         do {
             // save the event to the calendar
-            // "span" means "just this one" or "all subseqeunt events"
             try eventStore.save(event, span: .thisEvent)
             
             // save the identifier so we can save the event later

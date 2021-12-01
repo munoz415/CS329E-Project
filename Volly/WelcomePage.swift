@@ -49,8 +49,9 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
         let fetchedResults = retrieveEvents()
         
         let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        dateFormatter.dateFormat = "HH:mm E, d MMM y"
         
         for event in fetchedResults {
             if let name = event.value(forKey:"name") {
