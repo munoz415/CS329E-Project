@@ -242,10 +242,7 @@
                         <viewLayoutGuide key="safeArea" id="BDP-CX-umB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="BDP-CX-umB" firstAttribute="trailing" secondItem="36d-qc-Pry" secondAttribute="trailing" id="BhH-ja-I1C"/>
-                            <constraint firstItem="36d-qc-Pry" firstAttribute="top" secondItem="BDP-CX-umB" secondAttribute="top" id="dhi-N9-9Er"/>
-                            <constraint firstItem="36d-qc-Pry" firstAttribute="leading" secondItem="BDP-CX-umB" secondAttribute="leading" id="mNI-4p-YFB"/>
-                            <constraint firstItem="BDP-CX-umB" firstAttribute="bottom" secondItem="36d-qc-Pry" secondAttribute="bottom" id="y6H-Bo-aPW"/>
+                            <constraint firstAttribute="leading" secondItem="BDP-CX-umB" secondAttribute="leading" id="mNI-4p-YFB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="60m-Rz-24u"/>
