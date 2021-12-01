@@ -88,6 +88,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             deleteEvent(idx: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
     
     func removeEventSelected(selectedEvent: Event) {
         if(EKEventStore.authorizationStatus(for: .event) != .authorized) {

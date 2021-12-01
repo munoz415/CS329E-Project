@@ -54,8 +54,10 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
                     if let eventDescription = event.value(forKey: "eventDescription") {
                         if let hours = event.value(forKey: "hours") {
                             if let location = event.value(forKey: "location") {
-                                let eventItem = Event(name: name as! String, date: date as! String, hours: hours as! Double, location: location as! String, description: eventDescription as! String)
-                                eventList.append(eventItem)
+                                if let eventID = event.value(forKey: "eventID") {
+                                    let eventItem = Event(name: name as! String, date: date as! String, hours: hours as! Double, location: location as! String, description: eventDescription as! String, eventID: eventID as! String)
+                                    eventList.append(eventItem)
+                                }
                             }
                         }
                     }
