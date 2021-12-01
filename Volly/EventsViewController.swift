@@ -6,18 +6,13 @@ import UIKit
 import CoreData
 import EventKit
 
-protocol plusEvent {
-    //function to add new event to event list
-    func addEvent(newEvent:Event)
-}
-
 class tableCell: UITableViewCell {
     @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
 }
 
-class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate, plusEvent {
+class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate {
 
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
@@ -36,7 +31,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.rowHeight = 150.0
         tableView.delegate = self
         tableView.dataSource = self
-        loadArr()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

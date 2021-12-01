@@ -20,6 +20,10 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
         UNUserNotificationCenter.current().delegate = self
         // Do any additional setup after loading the view.
         //print(userName!)
+        
+        //load events from core data into table
+        EventsViewController().loadArr()
+        
         let results = retrieveSettings()
         if results.isEmpty == false{
             if let order = results.last?.value(forKey:"name") {

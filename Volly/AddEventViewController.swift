@@ -75,10 +75,8 @@ class AddEventViewController: UIViewController {
             addToCalendar()
             
             //add event to table
-            //delegate othervc as plus event
-            let otherVC = delegate as! plusEvent
-            //call method add pizza in othervc
-            otherVC.addEvent(newEvent: currentEvent)
+            //add event to other vc
+            //EventsViewController().addEvent(newEvent: currentEvent)
             
             //create and execute haptic response
             let event = CHHapticEvent(eventType: .hapticTransient, parameters: [], relativeTime: 0)
