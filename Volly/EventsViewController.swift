@@ -10,6 +10,8 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     var eventList:[NSManagedObject] = []
+
+    
     @IBOutlet weak var tableView: UITableView!
     let textCellIdentifier = "TextCell"
     
@@ -20,11 +22,26 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         UNUserNotificationCenter.current().delegate = self
         
         let fetchedResults = retrieveEvent()
-        for event in fetchedResults {
-            if let dateString = event.value(forKey:"date") {
-                print("date String is \(dateString as! String)")
-            }
-        }
+//        for event in fetchedResults {
+//            if let dateString = event.value(forKey:"date") {
+//                print("date String is \(dateString as! String)")
+//                if let eventDescription = event.value(forKey: "eventDescription") {
+//                    print("event description is \(eventDescription as! String)")
+//                    if let hours = event.value(forKey: "hours") {
+//                        print("hours is \(hours as! String)")
+//                        if let location = event.value(forKey: "location") {
+//                            print("location is \(location as! String)")
+//                            if let name = event.value(forKey: "name") {
+//                                print("name is \(name as! String)")
+//                                let eventItem = NSManagedObject(name: name as! String, date: dateString as! String, hours: hours as! Double, location: location as! String, description: eventDescription as! String)
+//                                eventList.append(eventItem)
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        //tableView.reloadData()
 
         // Do any additional setup after loading the view.
         
@@ -41,15 +58,16 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func retrieveEvent() -> [NSManagedObject] {
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName:"EventEntity")
         var fetchedResults:[NSManagedObject]? = nil
-        
+
         do {
             try fetchedResults = context.fetch(request) as? [NSManagedObject]
             self.eventList = fetchedResults!
+            print("the event list count is \(self.eventList.count)")
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -60,8 +78,25 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-        
+
         return(fetchedResults)!
+        
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName:"EventEntity")
+//        var fetchedResults:[NSManagedObject]? = nil
+//
+//        do {
+//            try fetchedResults = context.fetch(request) as? [NSManagedObject]
+//        } catch {
+//            // If an error occurs
+//            let nserror = error as NSError
+//            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+//            abort()
+//        }
+//
+//        return(fetchedResults)!
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -70,6 +105,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
+        print("index path row is \(indexPath.row)")
         let eventRow = eventList[indexPath.row]
         cell.textLabel?.text =  "\(String(describing: eventRow.value(forKey: "name"))) " +
                                 "\(String(describing: eventRow.value(forKey: "date"))) \n" +
