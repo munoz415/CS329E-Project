@@ -49,7 +49,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let request = NSFetchRequest<NSFetchRequestResult>(entityName:"EventEntity")
         var fetchedResults:[NSManagedObject]? = nil
-        
+
         do {
             try fetchedResults = context.fetch(request) as? [NSManagedObject]
 //            self.eventList = fetchedResults!
@@ -63,7 +63,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-        
+
         return(fetchedResults)!
     }
     
@@ -77,7 +77,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             //remove event from calendar
@@ -88,7 +88,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             deleteEvent(idx: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
-    }
     
     func removeEventSelected(selectedEvent: Event) {
         if(EKEventStore.authorizationStatus(for: .event) != .authorized) {
