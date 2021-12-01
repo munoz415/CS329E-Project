@@ -29,6 +29,8 @@ class AddEventViewController: UIViewController {
     
     var rawDate = NSDate()
     
+    var delegate: UIViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -71,6 +73,12 @@ class AddEventViewController: UIViewController {
             
             //put event in calendar
             addToCalendar()
+            
+            //add event to table
+            //delegate othervc as plus event
+            let otherVC = delegate as! plusEvent
+            //call method add pizza in othervc
+            otherVC.addEvent(newEvent: currentEvent)
             
             //create and execute haptic response
             let event = CHHapticEvent(eventType: .hapticTransient, parameters: [], relativeTime: 0)
@@ -125,7 +133,7 @@ class AddEventViewController: UIViewController {
             try eventStore.save(event, span: .thisEvent)
             
             // save the identifier so we can save the event later
-            
+            currentEvent.setEventID(newEventID: event.eventIdentifier)
         } catch {
             print("Error")
         }
@@ -145,6 +153,7 @@ class AddEventViewController: UIViewController {
         event.setValue(currentEvent.description, forKey: "eventDescription")
         event.setValue(currentEvent.hours, forKey: "hours")
         event.setValue(currentEvent.location, forKey: "location")
+        event.setValue(currentEvent.eventID, forKey: "eventID")
         
         // Commit the changes
         do {

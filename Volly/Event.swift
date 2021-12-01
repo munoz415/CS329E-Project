@@ -10,6 +10,7 @@ public class Event {
     var hours: Double
     var location: String
     var description: String
+    var eventID: String
     
     //init vars as empty strings
     init() {
@@ -18,15 +19,17 @@ public class Event {
         hours = 0.0
         location = ""
         description = ""
+        eventID = ""
     }
     
     //init vars with passed in variables
-    init(name: String, date: String, hours: Double, location: String, description: String) {
+    init(name: String, date: String, hours: Double, location: String, description: String, eventID: String) {
         self.name = name
         self.date = date
         self.hours = hours
         self.location = location
         self.description = description
+        self.eventID = eventID
     }
     
     //set methods to set characteristics to new strings
@@ -48,6 +51,10 @@ public class Event {
     
     func setDescription(newDescription: String) {
         description = newDescription
+    }
+    
+    func setEventID(newEventID: String) {
+        eventID = newEventID
     }
     
     func fullEvent() -> String {
