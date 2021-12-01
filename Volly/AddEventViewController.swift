@@ -74,9 +74,8 @@ class AddEventViewController: UIViewController {
             //put event in calendar
             addToCalendar()
             
-            //add event to table
-            //add event to other vc
-            //EventsViewController().addEvent(newEvent: currentEvent)
+            //load events from core data into table
+            EventsViewController().loadArr()
             
             //create and execute haptic response
             let event = CHHapticEvent(eventType: .hapticTransient, parameters: [], relativeTime: 0)

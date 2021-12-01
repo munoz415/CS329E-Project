@@ -28,9 +28,10 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 150.0
+        self.tableView.rowHeight = 70.0
         tableView.delegate = self
         tableView.dataSource = self
+        loadArr()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,9 +66,11 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath) as! tableCell
         let row = indexPath.row
         //set num of lines to zero so entire description appears in the cell
-        cell.textLabel?.numberOfLines = 0
+        //cell.textLabel?.numberOfLines = 0
         //fill cell with description of event from list
-        cell.textLabel?.text = eventList[row].toString()
+        cell.eventLabel?.text = eventList[row].name
+        cell.dateLabel?.text = eventList[row].date
+        cell.hoursLabel?.text = String(eventList[row].hours)
         
         return cell
     }
@@ -88,14 +91,14 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if(EKEventStore.authorizationStatus(for: .event) != .authorized) {
             eventStore.requestAccess(to: .event, completion: {
                 granted, error in
-                self.deleteEvent(eventIdentifier: selectedEvent.eventID)
+                self.deleteCalEvent(eventIdentifier: selectedEvent.eventID)
             })
         } else {
-            deleteEvent(eventIdentifier: selectedEvent.eventID)
+            deleteCalEvent(eventIdentifier: selectedEvent.eventID)
         }
     }
     
-    func deleteEvent(eventIdentifier: String) {
+    func deleteCalEvent(eventIdentifier: String) {
         let eventToRemove = eventStore.event(withIdentifier: eventIdentifier)
         if(eventToRemove != nil) {
             do{
@@ -157,7 +160,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func addEvent(newEvent: Event) {
         //add new event object to list of event
         eventList.append(newEvent)
-        //update table with new pizza
+        //update table with new event
         tableView.reloadData()
     }
 }
