@@ -17,6 +17,8 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         UNUserNotificationCenter.current().delegate = self
         // Do any additional setup after loading the view.
         //print(userName!)
@@ -27,7 +29,9 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
         let results = retrieveSettings()
         if results.isEmpty == false{
             if let order = results.last?.value(forKey:"name") {
-        topItem.title = topItem.title! + " " + (order as! String) + "!"
+                //if let gradYear = results.last?.value(forKey:"gradYear"){
+        topItem.title = topItem.title! + " " + (order as! String) + "!"// + "(Class of " + (gradYear as! String) + ")!"
+            //}
             }
         }
         
@@ -164,6 +168,8 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
         
         return(fetchedResults)!
     }
+    
+
 
 }
 

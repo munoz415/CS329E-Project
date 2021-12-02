@@ -5,19 +5,20 @@
 import UIKit
 import CoreData
 
-class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIFontPickerViewControllerDelegate {
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     let picker = UIImagePickerController()
     var imageData: Data?
+    @IBOutlet weak var gradYear: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
         let results = retrieveSettings()
         if results.isEmpty == false{
-            print("ran 1")
+            //print("ran 1")
             if let order = results.last?.value(forKey:"imageData") {
-                print("ran2")
+                //print("ran2")
                 let image = UIImage(data: order as! Data)
                 imageView.contentMode = .scaleAspectFit
                 imageView.image = image
@@ -45,6 +46,21 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         dismiss(animated: true, completion: nil)
         
     }
+    @IBAction func fontButtonPressed(_ sender: Any) {
+        let config = UIFontPickerViewController.Configuration()
+        config.includeFaces = false
+        let vc = UIFontPickerViewController(configuration: config)
+        vc.delegate = self
+        present(vc,animated: true)
+    }
+    func fontPickerViewControllerDidCancel(_ viewController: UIFontPickerViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+        }
+    func fontPickerViewControllerDidPickFont(_ viewController: UIFontPickerViewController) {
+        viewController.dismiss(animated: true, completion: nil)
+        let font = viewController.selectedFontDescriptor
+        print(font)
+        }
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         if(nameField.text != nil) {
@@ -58,17 +74,18 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         
         
         
-        func storeSettings() {
+    func storeSettings() {
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             let context = appDelegate.persistentContainer.viewContext
             
             //create new event entity
             let settingValues = NSEntityDescription.insertNewObject(
                 forEntityName: "SettingsEntity", into: context)
-            
             // Set attribute values
+        
             settingValues.setValue(nameField.text, forKey: "name")
             settingValues.setValue(imageData, forKey: "imageData")
+        settingValues.setValue(gradYear.text, forKey: "grad")
             // Commit the changes
             do {
                 try context.save()
