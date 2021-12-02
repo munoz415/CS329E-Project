@@ -26,6 +26,18 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func switchHappened(_ sender: UISwitch) {
+        if sender.isOn{
+            Theme.theme = DarkTheme()
+            view.backgroundColor = Theme.theme.background
+        }
+        else{
+            Theme.theme = LightTheme()
+            view.backgroundColor = Theme.theme.background
+        }
+    }
+    
     @IBAction func pictureButtonpressed(_ sender: Any) {
         picker.allowsEditing = false
         picker.sourceType = .photoLibrary

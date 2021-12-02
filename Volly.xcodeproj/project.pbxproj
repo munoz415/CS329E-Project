@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA9598DE27589D0B00C5A7C4 /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9598DD27589D0B00C5A7C4 /* ThemeProtocol.swift */; };
 		BED76478273AF4A900305F59 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED76477273AF4A900305F59 /* RegistrationViewController.swift */; };
 		BEDB68B9273AEE6D004FDB4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEDB68B8273AEE6D004FDB4A /* GoogleService-Info.plist */; };
 		CE2990462738AF8A00836112 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2990452738AF8A00836112 /* LoginViewController.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		30CB5B07126E0DA643D0FF7A /* Pods-Volly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volly.release.xcconfig"; path = "Target Support Files/Pods-Volly/Pods-Volly.release.xcconfig"; sourceTree = "<group>"; };
 		6B038EBD1501BEBFC4ADECF1 /* Pods-Volly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Volly.debug.xcconfig"; path = "Target Support Files/Pods-Volly/Pods-Volly.debug.xcconfig"; sourceTree = "<group>"; };
+		BA9598DD27589D0B00C5A7C4 /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		BED76477273AF4A900305F59 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		BEDB68B8273AEE6D004FDB4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE2990452738AF8A00836112 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				CEFDC55A2738AE52007CBF73 /* SceneDelegate.swift */,
 				CEFDC55C2738AE52007CBF73 /* WelcomePage.swift */,
 				CE2990452738AF8A00836112 /* LoginViewController.swift */,
+				BA9598DD27589D0B00C5A7C4 /* ThemeProtocol.swift */,
 				CEA44F842738AFEA00A09D7D /* SettingsViewController.swift */,
 				CEA44F882738B06F00A09D7D /* EventsViewController.swift */,
 				CEA44F862738B01C00A09D7D /* AddEventViewController.swift */,
@@ -245,6 +248,7 @@
 				CEA44F892738B06F00A09D7D /* EventsViewController.swift in Sources */,
 				CEFDC55B2738AE52007CBF73 /* SceneDelegate.swift in Sources */,
 				CEA44F852738AFEA00A09D7D /* SettingsViewController.swift in Sources */,
+				BA9598DE27589D0B00C5A7C4 /* ThemeProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

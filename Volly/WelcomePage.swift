@@ -26,14 +26,8 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
         //load events from core data into table
         EventsViewController().loadArr()
         
-        let results = retrieveSettings()
-        if results.isEmpty == false{
-            if let order = results.last?.value(forKey:"name") {
-                //if let gradYear = results.last?.value(forKey:"gradYear"){
-        topItem.title = topItem.title! + " " + (order as! String) + "!"// + "(Class of " + (gradYear as! String) + ")!"
-            //}
-            }
-        }
+    
+        
         
         let notification = UNMutableNotificationContent()
         notification.title = "Event is coming up!"
@@ -167,6 +161,18 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
         }
         
         return(fetchedResults)!
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.backgroundColor = Theme.theme.background
+        let results = retrieveSettings()
+        if results.isEmpty == false{
+            if let order = results.last?.value(forKey:"name") {
+                //if let gradYear = results.last?.value(forKey:"gradYear"){
+        topItem.title = "Welcome " + (order as! String) + "!"// + "(Class of " + (gradYear as! String) + ")!"
+            //}
+            }
+        }
     }
     
 
