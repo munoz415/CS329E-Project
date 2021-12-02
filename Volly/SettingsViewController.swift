@@ -9,9 +9,20 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
     let picker = UIImagePickerController()
+    var imageData: Data?
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
+        let results = retrieveSettings()
+        if results.isEmpty == false{
+            print("ran 1")
+            if let order = results.last?.value(forKey:"imageData") {
+                print("ran2")
+                let image = UIImage(data: order as! Data)
+                imageView.contentMode = .scaleAspectFit
+                imageView.image = image
+            }
+        }
         // Do any additional setup after loading the view.
     }
     @IBAction func pictureButtonpressed(_ sender: Any) {
@@ -28,6 +39,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         let chosenImage = info[.originalImage] as! UIImage
         imageView.contentMode = .scaleAspectFit
         imageView.image = chosenImage
+        let imageData = chosenImage.jpegData(compressionQuality: 1.0)
+        self.imageData = imageData
         
         dismiss(animated: true, completion: nil)
         
@@ -55,7 +68,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
             
             // Set attribute values
             settingValues.setValue(nameField.text, forKey: "name")
-            
+            settingValues.setValue(imageData, forKey: "imageData")
             // Commit the changes
             do {
                 try context.save()
@@ -68,5 +81,23 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         }
 
 }
+    func retrieveSettings() -> [NSManagedObject] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName:"SettingsEntity")
+        var fetchedResults:[NSManagedObject]? = nil
+        do {
+            try fetchedResults = context.fetch(request) as? [NSManagedObject]
+        } catch {
+            // If an error occurs
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        return(fetchedResults)!
+        
+    }
    
 }
