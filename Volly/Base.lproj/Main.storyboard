@@ -245,7 +245,10 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateLabel" destination="diI-8z-T79" id="Fyf-b6-2Ap"/>
+                                            <outlet property="dateLabel2" destination="mfe-nC-PqJ" id="iMf-xG-bvC"/>
                                             <outlet property="eventLabel" destination="HU1-kP-G6S" id="Zwk-FQ-MpS"/>
+                                            <outlet property="eventLabel2" destination="99g-Gl-Y3x" id="spk-xe-PAX"/>
+                                            <outlet property="hourLabel2" destination="8zm-hh-m3l" id="YLL-P3-MDg"/>
                                             <outlet property="hoursLabel" destination="jXB-AQ-E1z" id="4kO-Bf-5sS"/>
                                         </connections>
                                     </tableViewCell>
@@ -389,10 +392,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Zr-QJ-EmH"/>
                     <connections>
+                        <outlet property="dataLabel" destination="FRC-ca-Fyh" id="mes-4H-OBE"/>
                         <outlet property="datePicker" destination="dI1-dt-1Wz" id="3Fr-aI-pec"/>
                         <outlet property="descriptionField" destination="Ppc-6h-R78" id="JWp-st-5Yb"/>
+                        <outlet property="descriptionLabel" destination="nwJ-R6-mJ5" id="6bV-8h-7Vd"/>
+                        <outlet property="hourLabel" destination="G3y-am-bGR" id="FlY-aK-FhS"/>
                         <outlet property="hoursField" destination="rQY-Gt-g3m" id="UUt-cJ-ZNC"/>
+                        <outlet property="locationLabel" destination="1rW-oc-sza" id="cIE-T7-dg5"/>
                         <outlet property="nameField" destination="lfy-es-AqS" id="JYg-qa-EwD"/>
+                        <outlet property="nameLabel" destination="diS-SN-gjm" id="UGN-O8-tCg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vhn-3u-OT4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -515,7 +523,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="hBm-5J-Cze"/>
                     <connections>
+                        <outlet property="LoginButton" destination="q9a-9J-NmD" id="ImS-c6-BwX"/>
+                        <outlet property="emailText" destination="G9D-G4-TDX" id="vQD-TY-AlP"/>
                         <outlet property="emailTextField" destination="37Y-Ar-Dca" id="c9y-Ik-APJ"/>
+                        <outlet property="passwordText" destination="YdJ-3A-UJd" id="a6g-Ic-Fi5"/>
                         <outlet property="passwordTextField" destination="GVE-TZ-pP9" id="LMF-aT-dOu"/>
                         <segue destination="e6u-bW-FZe" kind="presentation" identifier="loginToWelcome" modalPresentationStyle="fullScreen" id="Kxy-SQ-uPi"/>
                     </connections>
@@ -598,8 +609,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="nHw-gy-zPq"/>
                     <connections>
+                        <outlet property="emailLabel" destination="Roa-Xi-Fro" id="ebG-We-FhO"/>
                         <outlet property="emailTextField" destination="2bm-SC-RcX" id="ek3-WP-Dmo"/>
+                        <outlet property="passwordLabel" destination="Xaz-6i-J7G" id="3BJ-lV-o6l"/>
                         <outlet property="passwordTextField" destination="sMe-kG-H18" id="PTZ-Qn-o3a"/>
+                        <outlet property="registerLabel" destination="tPW-Sm-zEl" id="NDp-pi-l8z"/>
                         <segue destination="e6u-bW-FZe" kind="presentation" identifier="registerToWelcome" modalPresentationStyle="fullScreen" id="Z5A-3R-YGL"/>
                     </connections>
                 </viewController>

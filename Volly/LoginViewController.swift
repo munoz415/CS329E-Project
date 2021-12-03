@@ -11,7 +11,11 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var LoginButton: UILabel!
     let segueIdentifier = "loginToWelcome"
+    @IBOutlet weak var emailText: UILabel!
+    @IBOutlet weak var passwordText: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +87,13 @@ class LoginViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.backgroundColor = Theme.theme.background
+        LoginButton.textColor = Theme.theme.fontColor
+        passwordText.textColor = Theme.theme.fontColor
+        emailText.textColor = Theme.theme.fontColor
+    }
     /*
     // MARK: - Navigation
 

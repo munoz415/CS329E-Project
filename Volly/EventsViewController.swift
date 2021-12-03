@@ -10,6 +10,9 @@ class tableCell: UITableViewCell {
     @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var hourLabel2: UILabel!
+    @IBOutlet weak var eventLabel2: UILabel!
+    @IBOutlet weak var dateLabel2: UILabel!
 }
 
 class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UNUserNotificationCenterDelegate {
@@ -71,7 +74,13 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.eventLabel?.text = eventList[row].name
         cell.dateLabel?.text = eventList[row].date
         cell.hoursLabel?.text = String(eventList[row].hours)
-        
+        cell.eventLabel?.textColor = Theme.theme.fontColor
+        cell.dateLabel?.textColor = Theme.theme.fontColor
+        cell.hoursLabel?.textColor = Theme.theme.fontColor
+        cell.eventLabel2?.textColor = Theme.theme.fontColor
+        cell.dateLabel2?.textColor = Theme.theme.fontColor
+        cell.hourLabel2?.textColor = Theme.theme.fontColor
+        cell.backgroundColor = Theme.theme.background
         return cell
     }
 
@@ -162,5 +171,13 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         eventList.append(newEvent)
         //update table with new event
         tableView.reloadData()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            view.backgroundColor = Theme.theme.background
+        tableView.backgroundColor = Theme.theme.background
+        //datePicker.setValue(Theme.theme.fontColor, forKey: "textColor")
+        
+        
     }
 }

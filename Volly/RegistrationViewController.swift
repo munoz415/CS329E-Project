@@ -13,7 +13,9 @@ class RegistrationViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var registerLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
     let segueIdentifier = "registerToWelcome"
     
     //var handle: AuthStateDidChangeListenerHandle?
@@ -104,6 +106,13 @@ class RegistrationViewController: UIViewController {
                 }
             }
         }
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.backgroundColor = Theme.theme.background
+        registerLabel.textColor = Theme.theme.fontColor
+        emailLabel.textColor = Theme.theme.fontColor
+        passwordLabel.textColor = Theme.theme.fontColor
     }
     /*
     // MARK: - Navigation

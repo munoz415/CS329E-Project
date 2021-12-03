@@ -18,6 +18,11 @@ class AddEventViewController: UIViewController {
     @IBOutlet weak var hoursField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var descriptionField: UITextField!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet weak var dataLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     var currentEvent = Event()
     
@@ -183,6 +188,18 @@ class AddEventViewController: UIViewController {
     
     func plusLocation(newLocation:String) {
         currentEvent.setLocation(newLocation: newLocation)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated)
+            view.backgroundColor = Theme.theme.background
+            nameLabel.textColor = Theme.theme.fontColor
+            hourLabel.textColor = Theme.theme.fontColor
+            dataLabel.textColor = Theme.theme.fontColor
+            locationLabel.textColor = Theme.theme.fontColor
+            descriptionLabel.textColor = Theme.theme.fontColor
+        //datePicker.setValue(Theme.theme.fontColor, forKey: "textColor")
+        
+        
     }
 
 }
