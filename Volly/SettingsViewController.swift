@@ -16,6 +16,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var fontLabel: UILabel!
     @IBOutlet weak var darkModeLabel: UILabel!
     @IBOutlet weak var profilePictureLabel: UILabel!
+    @IBOutlet weak var switchButton: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
@@ -34,6 +35,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func switchHappened(_ sender: UISwitch) {
         if sender.isOn{
+            UserDefaults.standard.set(true, forKey: "switchState")
             Theme.theme = DarkTheme()
             view.backgroundColor = Theme.theme.background
             profileName.textColor = Theme.theme.fontColor
@@ -43,6 +45,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
             profilePictureLabel.textColor = Theme.theme.fontColor
         }
         else{
+            UserDefaults.standard.set(false, forKey: "switchState")
             Theme.theme = LightTheme()
             view.backgroundColor = Theme.theme.background
             profileName.textColor = Theme.theme.fontColor
@@ -143,14 +146,15 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         return(fetchedResults)!
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         view.backgroundColor = Theme.theme.background
         profileName.textColor = Theme.theme.fontColor
         gradYearLabel.textColor = Theme.theme.fontColor
         fontLabel.textColor = Theme.theme.fontColor
         darkModeLabel.textColor = Theme.theme.fontColor
         profilePictureLabel.textColor = Theme.theme.fontColor
+        switchButton.isOn =  UserDefaults.standard.bool(forKey: "switchState")
     }
    
 }

@@ -87,8 +87,8 @@ class LoginViewController: UIViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         view.backgroundColor = Theme.theme.background
         LoginButton.textColor = Theme.theme.fontColor
         passwordText.textColor = Theme.theme.fontColor

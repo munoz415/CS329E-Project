@@ -116,6 +116,7 @@
                         <outlet property="nameField" destination="pUV-kO-IIZ" id="Ibi-3Z-fZa"/>
                         <outlet property="profileName" destination="pIl-LG-ugK" id="6Gx-4n-B5o"/>
                         <outlet property="profilePictureLabel" destination="gHE-as-TtY" id="uiY-sG-xZO"/>
+                        <outlet property="switchButton" destination="Ow8-xI-vMd" id="57f-jn-Qsp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ma1-5n-g5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

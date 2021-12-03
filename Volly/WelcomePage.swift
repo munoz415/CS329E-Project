@@ -161,8 +161,8 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
         
         return(fetchedResults)!
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         view.backgroundColor = Theme.theme.background
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:Theme.theme.fontColor]
         let results = retrieveSettings()

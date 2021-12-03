@@ -189,8 +189,8 @@ class AddEventViewController: UIViewController {
     func plusLocation(newLocation:String) {
         currentEvent.setLocation(newLocation: newLocation)
     }
-    override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
             view.backgroundColor = Theme.theme.background
             nameLabel.textColor = Theme.theme.fontColor
             hourLabel.textColor = Theme.theme.fontColor
