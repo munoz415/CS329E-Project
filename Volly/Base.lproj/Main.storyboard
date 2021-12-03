@@ -108,9 +108,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="CeU-kA-G9N"/>
                     <connections>
+                        <outlet property="darkModeLabel" destination="RcQ-gQ-4gc" id="zcl-Vn-rox"/>
+                        <outlet property="fontLabel" destination="ifN-zH-RIY" id="e2x-A3-YZh"/>
                         <outlet property="gradYear" destination="vaU-z2-2u8" id="xdf-VE-XGd"/>
+                        <outlet property="gradYearLabel" destination="Vtx-bq-b8n" id="QDn-oD-MtA"/>
                         <outlet property="imageView" destination="bUb-3f-BWi" id="sNa-rS-29R"/>
                         <outlet property="nameField" destination="pUV-kO-IIZ" id="Ibi-3Z-fZa"/>
+                        <outlet property="profileName" destination="pIl-LG-ugK" id="6Gx-4n-B5o"/>
+                        <outlet property="profilePictureLabel" destination="gHE-as-TtY" id="uiY-sG-xZO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ma1-5n-g5T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

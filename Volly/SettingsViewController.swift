@@ -11,6 +11,11 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     let picker = UIImagePickerController()
     var imageData: Data?
     @IBOutlet weak var gradYear: UITextField!
+    @IBOutlet weak var profileName: UILabel!
+    @IBOutlet weak var gradYearLabel: UILabel!
+    @IBOutlet weak var fontLabel: UILabel!
+    @IBOutlet weak var darkModeLabel: UILabel!
+    @IBOutlet weak var profilePictureLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
@@ -31,10 +36,20 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         if sender.isOn{
             Theme.theme = DarkTheme()
             view.backgroundColor = Theme.theme.background
+            profileName.textColor = Theme.theme.fontColor
+            gradYearLabel.textColor = Theme.theme.fontColor
+            fontLabel.textColor = Theme.theme.fontColor
+            darkModeLabel.textColor = Theme.theme.fontColor
+            profilePictureLabel.textColor = Theme.theme.fontColor
         }
         else{
             Theme.theme = LightTheme()
             view.backgroundColor = Theme.theme.background
+            profileName.textColor = Theme.theme.fontColor
+            gradYearLabel.textColor = Theme.theme.fontColor
+            fontLabel.textColor = Theme.theme.fontColor
+            darkModeLabel.textColor = Theme.theme.fontColor
+            profilePictureLabel.textColor = Theme.theme.fontColor
         }
     }
     
@@ -127,6 +142,15 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         
         return(fetchedResults)!
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.backgroundColor = Theme.theme.background
+        profileName.textColor = Theme.theme.fontColor
+        gradYearLabel.textColor = Theme.theme.fontColor
+        fontLabel.textColor = Theme.theme.fontColor
+        darkModeLabel.textColor = Theme.theme.fontColor
+        profilePictureLabel.textColor = Theme.theme.fontColor
     }
    
 }

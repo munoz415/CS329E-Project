@@ -12,7 +12,6 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
     var userType: String?
     var userName: String?
     @IBOutlet weak var topItem: UINavigationItem!
-    
     var eventList: [Event] = []
     
     override func viewDidLoad() {
@@ -165,6 +164,7 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         view.backgroundColor = Theme.theme.background
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:Theme.theme.fontColor]
         let results = retrieveSettings()
         if results.isEmpty == false{
             if let order = results.last?.value(forKey:"name") {
