@@ -89,6 +89,7 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
         view.backgroundColor = Theme.theme.background
         LoginButton.textColor = Theme.theme.fontColor
         passwordText.textColor = Theme.theme.fontColor
