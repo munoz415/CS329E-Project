@@ -37,10 +37,12 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         loadArr()
     }
     
+    //set the number of rows in the table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventList.count
     }
     
+    //get events from core data
     func retrieveEvent() -> [NSManagedObject] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -50,10 +52,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         do {
             try fetchedResults = context.fetch(request) as? [NSManagedObject]
-//            self.eventList = fetchedResults!
-//            DispatchQueue.main.async {
-//                self.tableView.reloadData()
-//            }
         }
         catch {
             // If an error occurs
@@ -68,8 +66,6 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath) as! tableCell
         let row = indexPath.row
-        //set num of lines to zero so entire description appears in the cell
-        //cell.textLabel?.numberOfLines = 0
         //fill cell with description of event from list
         cell.eventLabel?.text = eventList[row].name
         cell.dateLabel?.text = eventList[row].date
@@ -92,6 +88,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             eventList.remove(at: indexPath.row)
             //remove event from core data
             deleteEvent(idx: indexPath.row)
+            //delete row from table
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -129,7 +126,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             try fetchedResults = context.fetch(request) as! [NSManagedObject]
             
             if fetchedResults.count > 0 {
-                //delete pizza at specific index
+                //delete event at specific index
                 context.delete(fetchedResults[idx])
             }
             try context.save()
@@ -144,10 +141,10 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func loadArr() {
-        //get pizzas from core data
+        //get event from core data
         let fetchedResults = retrieveEvent()
         
-        //for each event, get attributes and add a new pizza object to pizza list
+        //for each event, get attributes and add a new event object to event list
         for event in fetchedResults {
             if let eventName = event.value(forKey: "name") {
                 if let eventDate = event.value(forKey: "date") {

@@ -25,9 +25,6 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
         //load events from core data into table
         EventsViewController().loadArr()
         
-    
-        
-        
         let notification = UNMutableNotificationContent()
         notification.title = "Event is coming up!"
         notification.subtitle = "An event is happening in less than 24 hours."

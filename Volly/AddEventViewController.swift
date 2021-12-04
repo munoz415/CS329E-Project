@@ -61,7 +61,6 @@ class AddEventViewController: UIViewController {
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         let dateString = dateFormatter.string(from: sender.date)
-        print("Date: \(dateString)")
         rawDate = datePicker.date as NSDate
         
         //add date string to event object
@@ -75,6 +74,18 @@ class AddEventViewController: UIViewController {
             currentEvent.setName(newName: nameField.text!)
             currentEvent.setHours(newHours: Double(hoursField.text!)!)
             currentEvent.setDescription(newDescription: descriptionField.text!)
+            
+            //if the user does not unput a date, use current time
+            if (currentEvent.date == "") {
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateStyle = .short
+                dateFormatter.timeStyle = .short
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                let dateString = dateFormatter.string(from: Date())
+                print("**********TODAY IS: \(dateString)")
+                rawDate = datePicker.date as NSDate
+                currentEvent.setDate(newDate: dateString)
+            }
             
             //if the user does not input a location, use the name of the event
             if(currentEvent.location == "") {
@@ -141,7 +152,7 @@ class AddEventViewController: UIViewController {
             // save the event to the calendar
             try eventStore.save(event, span: .thisEvent)
             
-            // save the identifier so we can save the event later
+            // save the identifier so we can delete the event later
             currentEvent.setEventID(newEventID: event.eventIdentifier)
         } catch {
             print("Error")

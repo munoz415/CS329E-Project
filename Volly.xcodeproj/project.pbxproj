@@ -11,9 +11,11 @@
 		BED76478273AF4A900305F59 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED76477273AF4A900305F59 /* RegistrationViewController.swift */; };
 		BEDB68B9273AEE6D004FDB4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BEDB68B8273AEE6D004FDB4A /* GoogleService-Info.plist */; };
 		CE2990462738AF8A00836112 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2990452738AF8A00836112 /* LoginViewController.swift */; };
+		CE52BD1A275AD23600C0953B /* StartupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE52BD19275AD23600C0953B /* StartupViewController.swift */; };
 		CEA44F852738AFEA00A09D7D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F842738AFEA00A09D7D /* SettingsViewController.swift */; };
 		CEA44F872738B01C00A09D7D /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F862738B01C00A09D7D /* AddEventViewController.swift */; };
 		CEA44F892738B06F00A09D7D /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F882738B06F00A09D7D /* EventsViewController.swift */; };
+		CEAB73E1275AF07B009889D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFDC5642738AE53007CBF73 /* Assets.xcassets */; };
 		CECAEA42273A103D00D501D1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAEA41273A103D00D501D1 /* MapViewController.swift */; };
 		CEDBB0C92741FC4900AC6054 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBB0C82741FC4900AC6054 /* Event.swift */; };
 		CEFDC5592738AE52007CBF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDC5582738AE52007CBF73 /* AppDelegate.swift */; };
@@ -21,7 +23,6 @@
 		CEFDC55D2738AE52007CBF73 /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDC55C2738AE52007CBF73 /* WelcomePage.swift */; };
 		CEFDC5602738AE52007CBF73 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFDC55E2738AE52007CBF73 /* Main.storyboard */; };
 		CEFDC5632738AE52007CBF73 /* Volly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CEFDC5612738AE52007CBF73 /* Volly.xcdatamodeld */; };
-		CEFDC5652738AE53007CBF73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFDC5642738AE53007CBF73 /* Assets.xcassets */; };
 		CEFDC5682738AE53007CBF73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEFDC5662738AE53007CBF73 /* LaunchScreen.storyboard */; };
 		EED02C153F70CD73F2C7BF15 /* Pods_Volly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E609EAC63142E3CB0CF5F4EE /* Pods_Volly.framework */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		BED76477273AF4A900305F59 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		BEDB68B8273AEE6D004FDB4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CE2990452738AF8A00836112 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		CE52BD19275AD23600C0953B /* StartupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartupViewController.swift; sourceTree = "<group>"; };
 		CEA44F842738AFEA00A09D7D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CEA44F862738B01C00A09D7D /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		CEA44F882738B06F00A09D7D /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				CECAEA41273A103D00D501D1 /* MapViewController.swift */,
 				BED76477273AF4A900305F59 /* RegistrationViewController.swift */,
 				CEFDC55E2738AE52007CBF73 /* Main.storyboard */,
+				CE52BD19275AD23600C0953B /* StartupViewController.swift */,
 				CEFDC5642738AE53007CBF73 /* Assets.xcassets */,
 				CEFDC5662738AE53007CBF73 /* LaunchScreen.storyboard */,
 				BEDB68B8273AEE6D004FDB4A /* GoogleService-Info.plist */,
@@ -183,7 +186,7 @@
 			files = (
 				CEFDC5682738AE53007CBF73 /* LaunchScreen.storyboard in Resources */,
 				BEDB68B9273AEE6D004FDB4A /* GoogleService-Info.plist in Resources */,
-				CEFDC5652738AE53007CBF73 /* Assets.xcassets in Resources */,
+				CEAB73E1275AF07B009889D4 /* Assets.xcassets in Resources */,
 				CEFDC5602738AE52007CBF73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,6 +242,7 @@
 			files = (
 				CEFDC5632738AE52007CBF73 /* Volly.xcdatamodeld in Sources */,
 				CEFDC55D2738AE52007CBF73 /* WelcomePage.swift in Sources */,
+				CE52BD1A275AD23600C0953B /* StartupViewController.swift in Sources */,
 				CEFDC5592738AE52007CBF73 /* AppDelegate.swift in Sources */,
 				BED76478273AF4A900305F59 /* RegistrationViewController.swift in Sources */,
 				CEDBB0C92741FC4900AC6054 /* Event.swift in Sources */,
@@ -396,6 +400,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SU9NCL3LQ2;
@@ -426,6 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SU9NCL3LQ2;
