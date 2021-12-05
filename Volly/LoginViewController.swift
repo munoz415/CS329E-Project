@@ -94,6 +94,9 @@ class LoginViewController: UIViewController {
         LoginButton.textColor = Theme.theme.fontColor
         passwordText.textColor = Theme.theme.fontColor
         emailText.textColor = Theme.theme.fontColor
+        LoginButton.font = UIFont(name: Theme.theme.font, size: LoginButton.font.pointSize)
+        passwordText.font = UIFont(name: Theme.theme.font, size: passwordText.font.pointSize)
+        emailText.font = UIFont(name: Theme.theme.font, size: emailText.font.pointSize)
     }
     /*
     // MARK: - Navigation

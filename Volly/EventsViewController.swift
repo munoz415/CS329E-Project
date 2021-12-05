@@ -76,6 +76,12 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.eventLabel2?.textColor = Theme.theme.fontColor
         cell.dateLabel2?.textColor = Theme.theme.fontColor
         cell.hourLabel2?.textColor = Theme.theme.fontColor
+        cell.eventLabel?.font = UIFont(name: Theme.theme.font, size: cell.eventLabel.font.pointSize)
+        cell.dateLabel?.font = UIFont(name: Theme.theme.font, size: cell.dateLabel.font.pointSize)
+        cell.hoursLabel?.font = UIFont(name: Theme.theme.font, size: cell.hoursLabel.font.pointSize)
+        cell.eventLabel2?.font = UIFont(name: Theme.theme.font, size: cell.eventLabel2.font.pointSize)
+        cell.dateLabel2?.font = UIFont(name: Theme.theme.font, size: cell.dateLabel2.font.pointSize)
+        cell.hourLabel2?.font = UIFont(name: Theme.theme.font, size: cell.hourLabel2.font.pointSize)
         cell.backgroundColor = Theme.theme.background
         return cell
     }

@@ -208,6 +208,11 @@ class AddEventViewController: UIViewController {
             dataLabel.textColor = Theme.theme.fontColor
             locationLabel.textColor = Theme.theme.fontColor
             descriptionLabel.textColor = Theme.theme.fontColor
+            nameLabel.font = UIFont(name: Theme.theme.font, size: nameLabel.font.pointSize)
+            hourLabel.font = UIFont(name: Theme.theme.font, size: hourLabel.font.pointSize)
+            dataLabel.font = UIFont(name: Theme.theme.font, size: dataLabel.font.pointSize)
+            locationLabel.font = UIFont(name: Theme.theme.font, size: locationLabel.font.pointSize)
+            descriptionLabel.font = UIFont(name: Theme.theme.font, size: descriptionLabel.font.pointSize)
         //datePicker.setValue(Theme.theme.fontColor, forKey: "textColor")
         
         

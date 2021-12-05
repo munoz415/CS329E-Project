@@ -113,6 +113,9 @@ class RegistrationViewController: UIViewController {
         registerLabel.textColor = Theme.theme.fontColor
         emailLabel.textColor = Theme.theme.fontColor
         passwordLabel.textColor = Theme.theme.fontColor
+        registerLabel.font = UIFont(name: Theme.theme.font, size: registerLabel.font.pointSize)
+        emailLabel.font = UIFont(name: Theme.theme.font, size: emailLabel.font.pointSize)
+        passwordLabel.font = UIFont(name: Theme.theme.font, size: passwordLabel.font.pointSize)
     }
     /*
     // MARK: - Navigation

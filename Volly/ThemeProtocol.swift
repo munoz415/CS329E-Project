@@ -33,7 +33,7 @@ class CowboyTheme: ThemeProtocol{
 class OUTheme: ThemeProtocol{
     var fontColor: UIColor = UIColor(ciColor: .white)
     var background: UIColor = UIColor.red
-    var font: String = "Zapfino"
+    var font: String = "Futura"
 }
 class Theme{
     static var theme: ThemeProtocol = LonghornTheme()
