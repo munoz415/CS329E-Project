@@ -52,8 +52,8 @@
                                     <action selector="saveButtonPressed:" destination="6oR-KY-KRX" eventType="touchUpInside" id="blk-Kg-t4y"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Change Font:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifN-zH-RIY">
-                                <rect key="frame" x="20" y="250" width="103" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Themes:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifN-zH-RIY">
+                                <rect key="frame" x="20" y="244" width="89" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -79,16 +79,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7X-KB-jEm">
-                                <rect key="frame" x="245" y="245" width="149" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Choose Font"/>
-                                <connections>
-                                    <action selector="fontButtonPressed:" destination="6oR-KY-KRX" eventType="touchUpInside" id="gVL-Gq-nk4"/>
-                                    <action selector="saveButtonPressed:" destination="6oR-KY-KRX" eventType="touchUpInside" id="Aec-da-fHs"/>
-                                </connections>
-                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bUb-3f-BWi">
                                 <rect key="frame" x="154" y="361" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -102,6 +92,18 @@
                                     <action selector="pictureButtonpressed:" destination="6oR-KY-KRX" eventType="touchUpInside" id="vwl-p2-yzp"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="s7k-IG-Lnw">
+                                <rect key="frame" x="117" y="239" width="280" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Longhorn"/>
+                                    <segment title="Cowboys"/>
+                                    <segment title="OU"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="6oR-KY-KRX" eventType="valueChanged" id="GuM-jp-KH8"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PyQ-TI-XOU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -116,6 +118,7 @@
                         <outlet property="nameField" destination="pUV-kO-IIZ" id="Ibi-3Z-fZa"/>
                         <outlet property="profileName" destination="pIl-LG-ugK" id="6Gx-4n-B5o"/>
                         <outlet property="profilePictureLabel" destination="gHE-as-TtY" id="uiY-sG-xZO"/>
+                        <outlet property="segControl" destination="s7k-IG-Lnw" id="3KD-AX-N1e"/>
                         <outlet property="switchButton" destination="Ow8-xI-vMd" id="57f-jn-Qsp"/>
                     </connections>
                 </viewController>
@@ -557,7 +560,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yRz-af-fa8">
-                                <rect key="frame" x="50" y="452.5" width="314" height="34"/>
+                                <rect key="frame" x="50" y="408.5" width="314" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xaz-6i-J7G">
                                         <rect key="frame" x="0.0" y="0.0" width="78" height="34"/>
@@ -573,13 +576,13 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPW-Sm-zEl">
-                                <rect key="frame" x="168" y="238" width="78" height="20.5"/>
+                                <rect key="frame" x="168" y="194" width="78" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhF-kj-U9d">
-                                <rect key="frame" x="165" y="606.5" width="84" height="31"/>
+                                <rect key="frame" x="165" y="562.5" width="84" height="31"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -589,7 +592,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tDH-hV-RZ7">
-                                <rect key="frame" x="50" y="358.5" width="314" height="34"/>
+                                <rect key="frame" x="50" y="314.5" width="314" height="34"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roa-Xi-Fro">
                                         <rect key="frame" x="0.0" y="0.0" width="45.5" height="34"/>
@@ -605,7 +608,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vollylogo" translatesAutoresizingMaskIntoConstraints="NO" id="AsN-qx-egO">
-                                <rect key="frame" x="87" y="102" width="240" height="128"/>
+                                <rect key="frame" x="87" y="58" width="240" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="ZYI-i2-gAN"/>
                                     <constraint firstAttribute="height" constant="128" id="xd4-mG-jfg"/>

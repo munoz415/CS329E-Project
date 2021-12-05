@@ -9,18 +9,32 @@ import UIKit
 protocol ThemeProtocol{
     var fontColor: UIColor { get }
     var background: UIColor { get }
-   
+    var font: String { get }
 }
 
-class LightTheme: ThemeProtocol{
-    var fontColor: UIColor = UIColor(ciColor: .black)
-    var background: UIColor = UIColor(ciColor: .white)
+class LonghornTheme: ThemeProtocol{
+    var fontColor: UIColor = UIColor(ciColor: .white)
+    var background: UIColor = UIColor.orange
+    var font: String = "Damascus"
 }
 
 class DarkTheme: ThemeProtocol{
     var fontColor: UIColor = UIColor(ciColor: .white)
     var background: UIColor = UIColor(ciColor: .black)
+    var font: String = "Damascus"
+}
+
+class CowboyTheme: ThemeProtocol{
+    var fontColor: UIColor = UIColor.lightGray
+    var background: UIColor = UIColor.blue
+    var font: String = "Avenir-Light"
+}
+
+class OUTheme: ThemeProtocol{
+    var fontColor: UIColor = UIColor(ciColor: .white)
+    var background: UIColor = UIColor.red
+    var font: String = "Zapfino"
 }
 class Theme{
-    static var theme: ThemeProtocol = LightTheme()
+    static var theme: ThemeProtocol = LonghornTheme()
 }

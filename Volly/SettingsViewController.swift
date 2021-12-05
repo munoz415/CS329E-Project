@@ -17,6 +17,7 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var darkModeLabel: UILabel!
     @IBOutlet weak var profilePictureLabel: UILabel!
     @IBOutlet weak var switchButton: UISwitch!
+    @IBOutlet weak var segControl: UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
         picker.delegate = self
@@ -46,7 +47,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         else{
             UserDefaults.standard.set(false, forKey: "switchState")
-            Theme.theme = LightTheme()
+            UserDefaults.standard.set(1, forKey: "SegState")
+            Theme.theme = LonghornTheme()
             view.backgroundColor = Theme.theme.background
             profileName.textColor = Theme.theme.fontColor
             gradYearLabel.textColor = Theme.theme.fontColor
@@ -55,6 +57,56 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
             profilePictureLabel.textColor = Theme.theme.fontColor
         }
     }
+    
+    @IBAction func segmentChanged(_ sender: Any) {
+        switch segControl.selectedSegmentIndex {
+        case 0:
+            Theme.theme = LonghornTheme()
+            UserDefaults.standard.set(1, forKey: "SegState")
+            view.backgroundColor = Theme.theme.background
+            profileName.textColor = Theme.theme.fontColor
+            gradYearLabel.textColor = Theme.theme.fontColor
+            fontLabel.textColor = Theme.theme.fontColor
+            darkModeLabel.textColor = Theme.theme.fontColor
+            profilePictureLabel.textColor = Theme.theme.fontColor
+            profileName.font = UIFont(name: Theme.theme.font, size: profileName.font.pointSize)
+            gradYearLabel.font = UIFont(name: Theme.theme.font, size: gradYearLabel.font.pointSize)
+            fontLabel.font = UIFont(name: Theme.theme.font, size: fontLabel.font.pointSize)
+            darkModeLabel.font = UIFont(name: Theme.theme.font, size: darkModeLabel.font.pointSize)
+            profilePictureLabel.font = UIFont(name: Theme.theme.font, size: profilePictureLabel.font.pointSize)
+        case 1:
+            Theme.theme = CowboyTheme()
+            view.backgroundColor = Theme.theme.background
+            UserDefaults.standard.set(2, forKey: "SegState")
+            profileName.textColor = Theme.theme.fontColor
+            gradYearLabel.textColor = Theme.theme.fontColor
+            fontLabel.textColor = Theme.theme.fontColor
+            darkModeLabel.textColor = Theme.theme.fontColor
+            profilePictureLabel.textColor = Theme.theme.fontColor
+            profileName.font = UIFont(name: Theme.theme.font, size: profileName.font.pointSize)
+            gradYearLabel.font = UIFont(name: Theme.theme.font, size: gradYearLabel.font.pointSize)
+            fontLabel.font = UIFont(name: Theme.theme.font, size: fontLabel.font.pointSize)
+            darkModeLabel.font = UIFont(name: Theme.theme.font, size: darkModeLabel.font.pointSize)
+            profilePictureLabel.font = UIFont(name: Theme.theme.font, size: profilePictureLabel.font.pointSize)
+        case 2:
+            Theme.theme = OUTheme()
+            view.backgroundColor = Theme.theme.background
+            UserDefaults.standard.set(3, forKey: "SegState")
+            profileName.textColor = Theme.theme.fontColor
+            gradYearLabel.textColor = Theme.theme.fontColor
+            fontLabel.textColor = Theme.theme.fontColor
+            darkModeLabel.textColor = Theme.theme.fontColor
+            profilePictureLabel.textColor = Theme.theme.fontColor
+            profileName.font = UIFont(name: Theme.theme.font, size: profileName.font.pointSize)
+            gradYearLabel.font = UIFont(name: Theme.theme.font, size: gradYearLabel.font.pointSize)
+            fontLabel.font = UIFont(name: Theme.theme.font, size: fontLabel.font.pointSize)
+            darkModeLabel.font = UIFont(name: Theme.theme.font, size: darkModeLabel.font.pointSize)
+            profilePictureLabel.font = UIFont(name: Theme.theme.font, size: profilePictureLabel.font.pointSize)
+        default:
+            gradYearLabel.text = "This should never happen"
+        }
+    }
+    
     
     @IBAction func pictureButtonpressed(_ sender: Any) {
         picker.allowsEditing = false
@@ -76,21 +128,8 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         dismiss(animated: true, completion: nil)
         
     }
-    @IBAction func fontButtonPressed(_ sender: Any) {
-        let config = UIFontPickerViewController.Configuration()
-        config.includeFaces = false
-        let vc = UIFontPickerViewController(configuration: config)
-        vc.delegate = self
-        present(vc,animated: true)
-    }
-    func fontPickerViewControllerDidCancel(_ viewController: UIFontPickerViewController) {
-        viewController.dismiss(animated: true, completion: nil)
-        }
-    func fontPickerViewControllerDidPickFont(_ viewController: UIFontPickerViewController) {
-        viewController.dismiss(animated: true, completion: nil)
-        let font = viewController.selectedFontDescriptor
-        print(font)
-        }
+    
+    
     
     @IBAction func saveButtonPressed(_ sender: Any) {
         if(nameField.text != nil) {
@@ -154,7 +193,13 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         fontLabel.textColor = Theme.theme.fontColor
         darkModeLabel.textColor = Theme.theme.fontColor
         profilePictureLabel.textColor = Theme.theme.fontColor
+        profileName.font = UIFont(name: Theme.theme.font, size: profileName.font.pointSize)
+        gradYearLabel.font = UIFont(name: Theme.theme.font, size: gradYearLabel.font.pointSize)
+        fontLabel.font = UIFont(name: Theme.theme.font, size: fontLabel.font.pointSize)
+        darkModeLabel.font = UIFont(name: Theme.theme.font, size: darkModeLabel.font.pointSize)
+        profilePictureLabel.font = UIFont(name: Theme.theme.font, size: profilePictureLabel.font.pointSize)
         switchButton.isOn =  UserDefaults.standard.bool(forKey: "switchState")
+        
     }
    
 }

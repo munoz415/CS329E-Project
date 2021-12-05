@@ -42,4 +42,27 @@ class StartupViewController: UIViewController {
         })
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if UserDefaults.standard.bool(forKey: "switchState") == true{
+            Theme.theme = DarkTheme()
+        }
+        else{
+            if UserDefaults.standard.integer(forKey: "SegState") == 1{
+                Theme.theme = LonghornTheme()
+            }
+            else if UserDefaults.standard.integer(forKey: "SegState") == 2{
+                Theme.theme = CowboyTheme()
+            }
+            else if UserDefaults.standard.integer(forKey: "SegState") == 3{
+                Theme.theme = OUTheme()
+            }
+            else{
+                Theme.theme = LonghornTheme()
+            }
+            
+        }
+        view.backgroundColor = Theme.theme.background
+        
+    }
 }
