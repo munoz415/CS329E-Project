@@ -16,6 +16,7 @@
 		CEA44F872738B01C00A09D7D /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F862738B01C00A09D7D /* AddEventViewController.swift */; };
 		CEA44F892738B06F00A09D7D /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA44F882738B06F00A09D7D /* EventsViewController.swift */; };
 		CEAB73E1275AF07B009889D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEFDC5642738AE53007CBF73 /* Assets.xcassets */; };
+		CEAB73E3275D777E009889D4 /* EventMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAB73E2275D777E009889D4 /* EventMapViewController.swift */; };
 		CECAEA42273A103D00D501D1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECAEA41273A103D00D501D1 /* MapViewController.swift */; };
 		CEDBB0C92741FC4900AC6054 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDBB0C82741FC4900AC6054 /* Event.swift */; };
 		CEFDC5592738AE52007CBF73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEFDC5582738AE52007CBF73 /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 		CEA44F842738AFEA00A09D7D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CEA44F862738B01C00A09D7D /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		CEA44F882738B06F00A09D7D /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
+		CEAB73E2275D777E009889D4 /* EventMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventMapViewController.swift; sourceTree = "<group>"; };
 		CECAEA41273A103D00D501D1 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		CEDBB0C82741FC4900AC6054 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		CEFDC5552738AE52007CBF73 /* Volly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Volly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 				CECAEA41273A103D00D501D1 /* MapViewController.swift */,
 				BED76477273AF4A900305F59 /* RegistrationViewController.swift */,
 				CEFDC55E2738AE52007CBF73 /* Main.storyboard */,
+				CEAB73E2275D777E009889D4 /* EventMapViewController.swift */,
 				CE52BD19275AD23600C0953B /* StartupViewController.swift */,
 				CEFDC5642738AE53007CBF73 /* Assets.xcassets */,
 				CEFDC5662738AE53007CBF73 /* LaunchScreen.storyboard */,
@@ -248,6 +251,7 @@
 				CEDBB0C92741FC4900AC6054 /* Event.swift in Sources */,
 				CECAEA42273A103D00D501D1 /* MapViewController.swift in Sources */,
 				CE2990462738AF8A00836112 /* LoginViewController.swift in Sources */,
+				CEAB73E3275D777E009889D4 /* EventMapViewController.swift in Sources */,
 				CEA44F872738B01C00A09D7D /* AddEventViewController.swift in Sources */,
 				CEA44F892738B06F00A09D7D /* EventsViewController.swift in Sources */,
 				CEFDC55B2738AE52007CBF73 /* SceneDelegate.swift in Sources */,

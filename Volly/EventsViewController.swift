@@ -27,6 +27,10 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var delegate: UIViewController!
     
+    let mapSegueID = "eventMapSegue"
+    
+    var selectedRow = 0
+    
     let eventStore = EKEventStore()
     
     override func viewDidLoad() {
@@ -99,6 +103,24 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //Change the selected background view of the cell.
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == mapSegueID,
+           //if going to the map page
+           let nextVC = segue.destination as? EventMapViewController {
+            //delegate self
+            nextVC.delegate = self
+            //get selected row from table
+            self.selectedRow = tableView.indexPath(for: sender as! tableCell)!.row
+            //send event to other vc
+            nextVC.event = eventList[self.selectedRow]
+        }
+    }
+    
     func removeEventSelected(selectedEvent: Event) {
         if(EKEventStore.authorizationStatus(for: .event) != .authorized) {
             eventStore.requestAccess(to: .event, completion: {
@@ -152,14 +174,16 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         //for each event, get attributes and add a new event object to event list
         for event in fetchedResults {
-            if let eventName = event.value(forKey: "name") {
-                if let eventDate = event.value(forKey: "date") {
-                    if let eventHours = event.value(forKey: "hours") {
-                        if let eventLocation = event.value(forKey: "location") {
-                            if let eventDescription = event.value(forKey: "eventDescription") {
-                                if let eventID = event.value(forKey: "eventID") {
-                                    var newEvent = Event(name: eventName as! String, date: eventDate as! String, hours: eventHours as! Double, location: eventLocation as! String, description: eventDescription as! String, eventID: eventID as! String)
-                                    eventList.append(newEvent)
+            if let name = event.value(forKey:"name") {
+                if let date = event.value(forKey:"date") {
+                    if let eventDescription = event.value(forKey: "eventDescription") {
+                        if let hours = event.value(forKey: "hours") {
+                            if let latitude = event.value(forKey: "eventLat") {
+                                if let longitude = event.value(forKey: "eventLon") {
+                                    if let eventID = event.value(forKey: "eventID") {
+                                        let eventItem = Event(name: name as! String, date: date as! String, hours: hours as! Double, eventLatitude: latitude as! Double, eventLongitude: longitude as! Double, description: eventDescription as! String, eventID: eventID as! String)
+                                        eventList.append(eventItem)
+                                    }
                                 }
                             }
                         }

@@ -15,7 +15,6 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         mapView.delegate = self
         mapView.showsUserLocation = true
         
@@ -39,10 +38,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         mapView.addAnnotation(annotation)
         
         let otherVC = delegate as! AddEventViewController
-        let locationStr = annotation.title!
-        otherVC.plusLocation(newLocation: locationStr)
+        otherVC.plusLocation(newLatitude: annotation.coordinate.latitude, newLongitude: annotation.coordinate.longitude)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        view.backgroundColor = Theme.theme.background
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         let userLocation = mapView.userLocation
@@ -58,16 +59,4 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         // commit the region
         mapView.setRegion(region, animated: true)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

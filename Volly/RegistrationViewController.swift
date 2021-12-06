@@ -17,12 +17,16 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
     let segueIdentifier = "registerToWelcome"
+    @IBOutlet weak var imageView: UIImageView!
     
     //var handle: AuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 3
+        imageView.layer.borderColor = UIColor.black.cgColor
     }
     
 //    override func viewWillAppear(_ animated: Bool) {

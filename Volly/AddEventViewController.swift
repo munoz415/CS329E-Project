@@ -6,6 +6,7 @@ import UIKit
 import CoreData
 import CoreHaptics
 import EventKit
+import CoreLocation
 
 protocol plusLocation {
     //function to add new location event
@@ -33,6 +34,8 @@ class AddEventViewController: UIViewController {
     let eventStore = EKEventStore()
     
     var rawDate = NSDate()
+    
+    var currentLocation: CLLocation!
     
     var delegate: UIViewController!
     
@@ -87,9 +90,10 @@ class AddEventViewController: UIViewController {
                 currentEvent.setDate(newDate: dateString)
             }
             
-            //if the user does not input a location, use the name of the event
-            if(currentEvent.location == "") {
-                currentEvent.setLocation(newLocation: nameField.text!)
+            //if the user does not input a location, use the devices current location
+            if(currentEvent.eventLatitude == 0.0 && currentEvent.eventLongitude == 0.0) {
+                currentEvent.setLatitude(newLatitude: currentLocation.coordinate.latitude)
+                currentEvent.setLongitude(newLongitude: currentLocation.coordinate.longitude)
             }
             
             //put event in calendar
@@ -172,7 +176,8 @@ class AddEventViewController: UIViewController {
         event.setValue(currentEvent.date, forKey: "date")
         event.setValue(currentEvent.description, forKey: "eventDescription")
         event.setValue(currentEvent.hours, forKey: "hours")
-        event.setValue(currentEvent.location, forKey: "location")
+        event.setValue(currentEvent.eventLatitude, forKey: "eventLat")
+        event.setValue(currentEvent.eventLongitude, forKey: "eventLon")
         event.setValue(currentEvent.eventID, forKey: "eventID")
         
         // Commit the changes
@@ -197,9 +202,11 @@ class AddEventViewController: UIViewController {
         }
     }
     
-    func plusLocation(newLocation:String) {
-        currentEvent.setLocation(newLocation: newLocation)
+    func plusLocation(newLatitude : Double, newLongitude: Double) {
+        currentEvent.setLatitude(newLatitude: newLatitude)
+        currentEvent.setLongitude(newLongitude: newLongitude)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
             view.backgroundColor = Theme.theme.background

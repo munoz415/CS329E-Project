@@ -52,10 +52,12 @@ class WelcomePage: UIViewController, UNUserNotificationCenterDelegate {
                 if let date = event.value(forKey:"date") {
                     if let eventDescription = event.value(forKey: "eventDescription") {
                         if let hours = event.value(forKey: "hours") {
-                            if let location = event.value(forKey: "location") {
-                                if let eventID = event.value(forKey: "eventID") {
-                                    let eventItem = Event(name: name as! String, date: date as! String, hours: hours as! Double, location: location as! String, description: eventDescription as! String, eventID: eventID as! String)
-                                    eventList.append(eventItem)
+                            if let latitude = event.value(forKey: "eventLat") {
+                                if let longitude = event.value(forKey: "eventLon") {
+                                    if let eventID = event.value(forKey: "eventID") {
+                                        let eventItem = Event(name: name as! String, date: date as! String, hours: hours as! Double, eventLatitude: latitude as! Double, eventLongitude: longitude as! Double, description: eventDescription as! String, eventID: eventID as! String)
+                                        eventList.append(eventItem)
+                                    }
                                 }
                             }
                         }

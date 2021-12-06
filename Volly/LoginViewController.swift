@@ -15,12 +15,16 @@ class LoginViewController: UIViewController {
     let segueIdentifier = "loginToWelcome"
     @IBOutlet weak var emailText: UILabel!
     @IBOutlet weak var passwordText: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 3
+        imageView.layer.borderColor = UIColor.black.cgColor
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {

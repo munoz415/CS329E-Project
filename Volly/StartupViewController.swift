@@ -17,6 +17,11 @@ class StartupViewController: UIViewController {
         super.viewDidLayoutSubviews()
         //center imageview
         imageView.center = view.center
+        //add rounded border
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 3
+        imageView.layer.borderColor = UIColor.black.cgColor
         //execute animation after short delay
         DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
             self.animate()

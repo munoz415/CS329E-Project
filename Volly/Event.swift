@@ -8,7 +8,8 @@ public class Event {
     var name: String
     var date: String
     var hours: Double
-    var location: String
+    var eventLatitude: Double
+    var eventLongitude: Double
     var description: String
     var eventID: String
     
@@ -17,17 +18,19 @@ public class Event {
         name = ""
         date = ""
         hours = 0.0
-        location = ""
+        eventLatitude = 0.0
+        eventLongitude = 0.0
         description = ""
         eventID = ""
     }
     
     //init vars with passed in variables
-    init(name: String, date: String, hours: Double, location: String, description: String, eventID: String) {
+    init(name: String, date: String, hours: Double, eventLatitude: Double, eventLongitude: Double, description: String, eventID: String) {
         self.name = name
         self.date = date
         self.hours = hours
-        self.location = location
+        self.eventLatitude = eventLatitude
+        self.eventLongitude = eventLongitude
         self.description = description
         self.eventID = eventID
     }
@@ -45,10 +48,13 @@ public class Event {
         hours = newHours
     }
     
-    func setLocation(newLocation: String) {
-        location = newLocation
+    func setLatitude(newLatitude: Double) {
+        eventLatitude = newLatitude
     }
     
+    func setLongitude(newLongitude: Double) {
+        eventLongitude = newLongitude
+    }
     func setDescription(newDescription: String) {
         description = newDescription
     }
@@ -64,8 +70,6 @@ public class Event {
             return "date."
         } else if(hours == 0.0) {
             return "hours."
-        } else if(location == "") {
-            return "location."
         } else if(description == "") {
             return "description."
         } else {
@@ -74,6 +78,6 @@ public class Event {
     }
     
     func toString() -> String {
-        return "Name: \(name)\nDate: \(date)\nHours: \(hours)\nLocation: \(location)\nDescription: \(description)"
+        return "Name: \(name)\nDate: \(date)\nHours: \(hours)\nDescription: \(description)"
     }
 }
