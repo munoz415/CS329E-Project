@@ -4,6 +4,7 @@
 
 import UIKit
 import CoreData
+import AVFoundation
 
 class SettingsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIFontPickerViewControllerDelegate {
     @IBOutlet weak var nameField: UITextField!
@@ -128,6 +129,44 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         dismiss(animated: true, completion: nil)
         
     }
+    
+    @IBAction func cameraSelected(_ sender: Any) {
+        if UIImagePickerController.availableCaptureModes(for: .rear) != nil {
+            switch AVCaptureDevice.authorizationStatus(for: .video) {
+            case .notDetermined:
+                AVCaptureDevice.requestAccess(for: .video) {
+                    accessGranted in
+                    guard accessGranted == true else { return }
+                }
+            case .authorized:
+                break
+            default:
+                print("Access denied")
+                return
+            }
+            
+            picker.allowsEditing = false
+            picker.sourceType = .camera
+            picker.cameraCaptureMode = .photo
+            
+            present(picker, animated: true, completion: nil)
+        
+        } else {
+            
+            let alertVC = UIAlertController(
+                title: "No camera",
+                message: "Please select Choose Picture Instead",
+                preferredStyle: .alert)
+            let okAction = UIAlertAction(
+                title: "OK",
+                style: .default,
+                handler: nil)
+            alertVC.addAction(okAction)
+            present(alertVC, animated: true, completion: nil)
+            
+        }
+    }
+    
     
     
     
