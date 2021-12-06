@@ -7,6 +7,7 @@ import CoreData
 import CoreHaptics
 import EventKit
 import CoreLocation
+import MapKit
 
 protocol plusLocation {
     //function to add new location event
@@ -39,9 +40,13 @@ class AddEventViewController: UIViewController {
     
     var delegate: UIViewController!
     
+    var locManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        locManager.requestWhenInUseAuthorization()
         
         //set specific date and time mode
         datePicker.datePickerMode = .dateAndTime
@@ -85,13 +90,16 @@ class AddEventViewController: UIViewController {
                 dateFormatter.timeStyle = .short
                 dateFormatter.locale = Locale(identifier: "en_US_POSIX")
                 let dateString = dateFormatter.string(from: Date())
-                print("**********TODAY IS: \(dateString)")
                 rawDate = datePicker.date as NSDate
                 currentEvent.setDate(newDate: dateString)
             }
             
             //if the user does not input a location, use the devices current location
             if(currentEvent.eventLatitude == 0.0 && currentEvent.eventLongitude == 0.0) {
+                var currentLocation: CLLocation!
+
+                currentLocation = locManager.location
+                
                 currentEvent.setLatitude(newLatitude: currentLocation.coordinate.latitude)
                 currentEvent.setLongitude(newLongitude: currentLocation.coordinate.longitude)
             }
