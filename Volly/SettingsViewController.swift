@@ -45,17 +45,62 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
             fontLabel.textColor = Theme.theme.fontColor
             darkModeLabel.textColor = Theme.theme.fontColor
             profilePictureLabel.textColor = Theme.theme.fontColor
+            profileName.font = UIFont(name: Theme.theme.font, size: profileName.font.pointSize)
+            gradYearLabel.font = UIFont(name: Theme.theme.font, size: gradYearLabel.font.pointSize)
+            fontLabel.font = UIFont(name: Theme.theme.font, size: fontLabel.font.pointSize)
+            darkModeLabel.font = UIFont(name: Theme.theme.font, size: darkModeLabel.font.pointSize)
+            profilePictureLabel.font = UIFont(name: Theme.theme.font, size: profilePictureLabel.font.pointSize)
         }
         else{
-            UserDefaults.standard.set(false, forKey: "switchState")
-            UserDefaults.standard.set(1, forKey: "SegState")
-            Theme.theme = LonghornTheme()
-            view.backgroundColor = Theme.theme.background
-            profileName.textColor = Theme.theme.fontColor
-            gradYearLabel.textColor = Theme.theme.fontColor
-            fontLabel.textColor = Theme.theme.fontColor
-            darkModeLabel.textColor = Theme.theme.fontColor
-            profilePictureLabel.textColor = Theme.theme.fontColor
+            switch segControl.selectedSegmentIndex {
+            case 0:
+                Theme.theme = LonghornTheme()
+                UserDefaults.standard.set(1, forKey: "SegState")
+                UserDefaults.standard.set(false, forKey: "switchState")
+                view.backgroundColor = Theme.theme.background
+                profileName.textColor = Theme.theme.fontColor
+                gradYearLabel.textColor = Theme.theme.fontColor
+                fontLabel.textColor = Theme.theme.fontColor
+                darkModeLabel.textColor = Theme.theme.fontColor
+                profilePictureLabel.textColor = Theme.theme.fontColor
+                profileName.font = UIFont(name: Theme.theme.font, size: profileName.font.pointSize)
+                gradYearLabel.font = UIFont(name: Theme.theme.font, size: gradYearLabel.font.pointSize)
+                fontLabel.font = UIFont(name: Theme.theme.font, size: fontLabel.font.pointSize)
+                darkModeLabel.font = UIFont(name: Theme.theme.font, size: darkModeLabel.font.pointSize)
+                profilePictureLabel.font = UIFont(name: Theme.theme.font, size: profilePictureLabel.font.pointSize)
+            case 1:
+                Theme.theme = CowboyTheme()
+                UserDefaults.standard.set(2, forKey: "SegState")
+                UserDefaults.standard.set(false, forKey: "switchState")
+                view.backgroundColor = Theme.theme.background
+                profileName.textColor = Theme.theme.fontColor
+                gradYearLabel.textColor = Theme.theme.fontColor
+                fontLabel.textColor = Theme.theme.fontColor
+                darkModeLabel.textColor = Theme.theme.fontColor
+                profilePictureLabel.textColor = Theme.theme.fontColor
+                profileName.font = UIFont(name: Theme.theme.font, size: profileName.font.pointSize)
+                gradYearLabel.font = UIFont(name: Theme.theme.font, size: gradYearLabel.font.pointSize)
+                fontLabel.font = UIFont(name: Theme.theme.font, size: fontLabel.font.pointSize)
+                darkModeLabel.font = UIFont(name: Theme.theme.font, size: darkModeLabel.font.pointSize)
+                profilePictureLabel.font = UIFont(name: Theme.theme.font, size: profilePictureLabel.font.pointSize)
+            case 2:
+                Theme.theme = OUTheme()
+                UserDefaults.standard.set(2, forKey: "SegState")
+                UserDefaults.standard.set(false, forKey: "switchState")
+                view.backgroundColor = Theme.theme.background
+                profileName.textColor = Theme.theme.fontColor
+                gradYearLabel.textColor = Theme.theme.fontColor
+                fontLabel.textColor = Theme.theme.fontColor
+                darkModeLabel.textColor = Theme.theme.fontColor
+                profilePictureLabel.textColor = Theme.theme.fontColor
+                profileName.font = UIFont(name: Theme.theme.font, size: profileName.font.pointSize)
+                gradYearLabel.font = UIFont(name: Theme.theme.font, size: gradYearLabel.font.pointSize)
+                fontLabel.font = UIFont(name: Theme.theme.font, size: fontLabel.font.pointSize)
+                darkModeLabel.font = UIFont(name: Theme.theme.font, size: darkModeLabel.font.pointSize)
+                profilePictureLabel.font = UIFont(name: Theme.theme.font, size: profilePictureLabel.font.pointSize)
+            default:
+                print("Should not happen")
+            }
         }
     }
     
@@ -238,6 +283,18 @@ class SettingsViewController: UIViewController, UIImagePickerControllerDelegate,
         darkModeLabel.font = UIFont(name: Theme.theme.font, size: darkModeLabel.font.pointSize)
         profilePictureLabel.font = UIFont(name: Theme.theme.font, size: profilePictureLabel.font.pointSize)
         switchButton.isOn =  UserDefaults.standard.bool(forKey: "switchState")
+        if UserDefaults.standard.integer(forKey: "SegState") == 1{
+            segControl.selectedSegmentIndex = 0
+        }
+        else if UserDefaults.standard.integer(forKey: "SegState") == 2{
+            segControl.selectedSegmentIndex = 1
+        }
+        else if UserDefaults.standard.integer(forKey: "SegState") == 3{
+            segControl.selectedSegmentIndex = 2
+        }
+        else{
+            segControl.selectedSegmentIndex = 0
+        }
         
     }
    
